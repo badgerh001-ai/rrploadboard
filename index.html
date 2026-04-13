@@ -8,17 +8,17 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="RRP ENTERPRISES">
-<meta name="theme-color" content="#1B3A6B">
+<meta name="theme-color" content="#0d2445">
 
 <title>RRP ENTERPRISES</title>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{ --navy-dark:#0d1f3c;--navy:#1B3A6B;--gold:#C9A227;--gold-light:#e2b93b; --white:#fff;--gray:#7a90b0;--green:#1a9e5c;--red:#e03e3e; --border:rgba(201,162,39,0.2); }
+:root{ --navy-dark:#0a172e;--navy:#0d2445;--gold:#00A2E8;--gold-light:#33C2FF; --white:#fff;--gray:#8ba3c6;--green:#1a9e5c;--red:#e03e3e; --border:rgba(0,162,232,0.2); }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',sans-serif;background:var(--navy-dark);min-height:100vh;color:var(--white);overflow-x:hidden;}
-header{background:linear-gradient(135deg,#0d1f3c,#1b3a6b);border-bottom:2px solid var(--gold);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;box-shadow:0 4px 24px rgba(0,0,0,.5);}
+header{background:linear-gradient(135deg,#0a172e,#0d2445);border-bottom:2px solid var(--gold);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;box-shadow:0 4px 24px rgba(0,0,0,.5);}
 .logo{display:flex;align-items:center;gap:10px;}
-.logo-mark{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;color:#0d1f3c;}
+.logo-mark{width:40px;height:40px;border-radius:8px;object-fit:cover;background:#fff;}
 .logo-text{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:1.5px;line-height:1.1;}
 .logo-text small{display:block;font-size:10px;font-weight:500;color:var(--gold);letter-spacing:2px;}
 .live-pill{background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:1px;display:flex;align-items:center;gap:4px;}
@@ -26,22 +26,22 @@ header{background:linear-gradient(135deg,#0d1f3c,#1b3a6b);border-bottom:2px soli
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 .container{max-width:820px;margin:0 auto;padding:16px 12px 60px;}
 .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
-.stat{background:rgba(27,58,107,.4);border:1px solid var(--border);border-radius:10px;padding:11px 8px;text-align:center;}
+.stat{background:rgba(13,36,69,.4);border:1px solid var(--border);border-radius:10px;padding:11px 8px;text-align:center;}
 .stat-n{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1;}
 .stat-l{font-size:10px;color:var(--gray);letter-spacing:.8px;text-transform:uppercase;margin-top:2px;}
 .sec-title{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
 .sec-title::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--gold),transparent);}
-.card{background:linear-gradient(160deg,rgba(27,58,107,.4),rgba(13,31,60,.7));border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px;}
+.card{background:linear-gradient(160deg,rgba(13,36,69,.4),rgba(10,23,46,.7));border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px;}
 label{font-size:10px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--gray);display:block;margin-bottom:5px;}
 input,select,textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:9px 11px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:all .2s;width:100%;-webkit-appearance:none;}
 input::placeholder,textarea::placeholder{color:rgba(255,255,255,.22);}
-input:focus,select:focus,textarea:focus{border-color:var(--gold);background:rgba(201,162,39,.07);box-shadow:0 0 0 3px rgba(201,162,39,.1);}
-select option{background:#0d1f3c;color:#fff;}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);background:rgba(0,162,232,.07);box-shadow:0 0 0 3px rgba(0,162,232,.1);}
+select option{background:#0a172e;color:#fff;}
 textarea{resize:none;height:60px;}
 .fg{margin-bottom:12px;}
 .chips{display:flex;flex-wrap:wrap;gap:6px;}
 .chip{padding:6px 13px;border-radius:20px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--gray);font-size:12px;font-weight:500;cursor:pointer;transition:all .18s;font-family:'DM Sans',sans-serif;user-select:none;}
-.chip.sel{background:var(--gold);border-color:var(--gold);color:#0d1f3c;font-weight:700;}
+.chip.sel{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:700;}
 .chip-lbl{font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
 .load-entries{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
 .load-entry{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;animation:fadeIn .25s ease;}
@@ -52,21 +52,21 @@ textarea{resize:none;height:60px;}
 .entry-del:hover{color:var(--red);}
 .route-row{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:end;margin-bottom:12px;}
 .arrow{color:var(--gold);font-size:20px;font-weight:700;text-align:center;padding-bottom:9px;}
-.add-entry-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border:1px dashed rgba(201,162,39,.4);border-radius:8px;color:var(--gold);font-size:13px;font-weight:600;cursor:pointer;background:transparent;width:100%;font-family:'Rajdhani',sans-serif;letter-spacing:1px;transition:all .2s;}
-.add-entry-btn:hover{background:rgba(201,162,39,.08);border-color:var(--gold);}
+.add-entry-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border:1px dashed rgba(0,162,232,.4);border-radius:8px;color:var(--gold);font-size:13px;font-weight:600;cursor:pointer;background:transparent;width:100%;font-family:'Rajdhani',sans-serif;letter-spacing:1px;transition:all .2s;}
+.add-entry-btn:hover{background:rgba(0,162,232,.08);border-color:var(--gold);}
 .btn{display:flex;align-items:center;justify-content:center;gap:6px;border:none;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .2s;padding:11px 14px;}
 .btn:hover{transform:translateY(-1px);}
-.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0d1f3c;}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#fff;}
 .btn-gold:hover{filter:brightness(1.08);}
 .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--gray);}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
-.btn-outline{background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.3);color:var(--gold);}
+.btn-outline{background:rgba(0,162,232,.1);border:1px solid rgba(0,162,232,.3);color:var(--gold);}
 .btn-sm{padding:8px 12px;font-size:12px;}
 .btn-row{display:flex;gap:8px;margin-top:12px;}
-.prev-box{background:#060f1e;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px;font-size:13px;line-height:1.9;color:#b8ccec;white-space:pre-wrap;min-height:100px;position:relative;font-family:'DM Sans',sans-serif;}
+.prev-box{background:#040c17;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px;font-size:13px;line-height:1.9;color:#b8ccec;white-space:pre-wrap;min-height:100px;position:relative;font-family:'DM Sans',sans-serif;}
 .prev-ph{color:rgba(255,255,255,.18);font-style:italic;}
-.copy-float{position:absolute;top:10px;right:10px;background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.3);color:var(--gold);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
-.copy-float:hover{background:rgba(201,162,39,.25);}
+.copy-float{position:absolute;top:10px;right:10px;background:rgba(0,162,232,.12);border:1px solid rgba(0,162,232,.3);color:var(--gold);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.copy-float:hover{background:rgba(0,162,232,.25);}
 .grp-list{display:flex;flex-direction:column;gap:7px;margin-bottom:10px;}
 .grp-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:9px 12px;}
 .grp-item input[type=checkbox]{width:17px;height:17px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;}
@@ -82,13 +82,13 @@ textarea{resize:none;height:60px;}
 .btn-bcast:hover{filter:brightness(1.08);}
 .btn-bcast:disabled{opacity:.4;cursor:not-allowed;transform:none;}
 .hist-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:11px 13px;margin-bottom:8px;display:flex;align-items:flex-start;gap:11px;transition:border-color .2s;animation:fadeIn .3s ease;}
-.hist-item:hover{border-color:rgba(201,162,39,.3);}
-.hist-icon{width:36px;height:36px;background:rgba(201,162,39,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.hist-item:hover{border-color:rgba(0,162,232,.3);}
+.hist-icon{width:36px;height:36px;background:rgba(0,162,232,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
 .hist-info{flex:1;min-width:0;}
 .hist-route{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .hist-route em{color:var(--gold);font-style:normal;}
 .hist-meta{font-size:11px;color:var(--gray);margin-top:3px;display:flex;gap:6px;flex-wrap:wrap;}
-.tag{background:rgba(27,58,107,.8);border:1px solid rgba(255,255,255,.08);padding:2px 6px;border-radius:4px;font-size:10px;color:#90a8c8;}
+.tag{background:rgba(13,36,69,.8);border:1px solid rgba(255,255,255,.08);padding:2px 6px;border-radius:4px;font-size:10px;color:#90a8c8;}
 .hist-acts{display:flex;flex-direction:column;gap:4px;flex-shrink:0;}
 .hist-time{font-size:10px;color:rgba(255,255,255,.25);text-align:right;}
 .mb{padding:5px 9px;border-radius:6px;border:none;font-size:11px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;display:flex;align-items:center;gap:3px;white-space:nowrap;}
@@ -102,7 +102,7 @@ textarea{resize:none;height:60px;}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);border:1px solid var(--gold);color:#fff;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:500;z-index:999;transition:transform .3s ease;box-shadow:0 8px 32px rgba(0,0,0,.5);white-space:nowrap;}
 .toast.show{transform:translateX(-50%) translateY(0);}
 .divider{height:1px;background:rgba(255,255,255,.07);margin:14px 0;}
-.miss-note{font-size:11px;color:rgba(201,162,39,.7);margin-top:6px;padding:6px 10px;background:rgba(201,162,39,.07);border-radius:6px;display:none;}
+.miss-note{font-size:11px;color:rgba(0,162,232,.7);margin-top:6px;padding:6px 10px;background:rgba(0,162,232,.07);border-radius:6px;display:none;}
 .miss-note.show{display:block;}
 @media(max-width:480px){
 .route-row{grid-template-columns:1fr;gap:6px;}
@@ -116,11 +116,11 @@ textarea{resize:none;height:60px;}
 
 <header>
     <div class="logo">
-        <div class="logo-mark">RRP</div>
+        <img src="https://i.img.it.com/R9tD6GPw/logo.png.jpg" alt="RRP Logo" class="logo-mark">
         <div class="logo-text">ENTERPRISES<small>LOAD BOARD</small></div>
     </div>
     <div style="display:flex;align-items:center;gap:8px;">
-        <button id="installBtn" onclick="triggerInstall()" style="display:none;align-items:center;gap:5px;background:linear-gradient(135deg,#C9A227,#e2b93b);color:#0d1f3c;border:none;border-radius:20px;padding:4px 12px;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;">⬇ INSTALL</button>
+        <button id="installBtn" onclick="triggerInstall()" style="display:none;align-items:center;gap:5px;background:linear-gradient(135deg,#00A2E8,#33C2FF);color:#fff;border:none;border-radius:20px;padding:4px 12px;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;">⬇ INSTALL</button>
         <div class="live-pill"><div class="live-dot"></div>LIVE</div>
     </div>
 </header>
@@ -227,13 +227,13 @@ textarea{resize:none;height:60px;}
         "theme_color": "#1B3A6B",
         "icons": [
             {
-                "src": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='24' fill='%23C9A227'/%3E%3Ctext x='96' y='112' font-size='72' font-family='Arial Black,sans-serif' font-weight='900' fill='%230d1f3c' text-anchor='middle'%3ERRP%3C/text%3E%3C/svg%3E",
+                "src": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='24' fill='%2300A2E8'/%3E%3Ctext x='96' y='112' font-size='72' font-family='Arial Black,sans-serif' font-weight='900' fill='%230d1f3c' text-anchor='middle'%3ERRP%3C/text%3E%3C/svg%3E",
                 "sizes": "192x192",
                 "type": "image/svg+xml",
                 "purpose": "any"
             },
             {
-                "src": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='64' fill='%23C9A227'/%3E%3Ctext x='256' y='300' font-size='192' font-family='Arial Black,sans-serif' font-weight='900' fill='%230d1f3c' text-anchor='middle'%3ERRP%3C/text%3E%3C/svg%3E",
+                "src": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='64' fill='%2300A2E8'/%3E%3Ctext x='256' y='300' font-size='192' font-family='Arial Black,sans-serif' font-weight='900' fill='%230d1f3c' text-anchor='middle'%3ERRP%3C/text%3E%3C/svg%3E",
                 "sizes": "512x512",
                 "type": "image/svg+xml",
                 "purpose": "any maskable"
@@ -363,7 +363,7 @@ const D = {
     'sangareddy':{te:'సంగారెడ్డి',kn:'ಸಂಗಾರೆಡ್ಡಿ',hi:'संगारेड्डी',mr:'संगारेड्डी',ml:'സംഗാറെഡ്ഡി'},
     'nizamabad':{te:'నిజామాబాద్',kn:'ನಿಜಾಮಾಬಾದ್',hi:'निजामाबाद',mr:'निजामाबाद',ml:'നിസാമാബാദ്'},
     'karimnagar':{te:'కరీంనగర్',kn:'ಕರೀಂನಗರ್',hi:'करीमनगर',mr:'करीमनगर',ml:'കരീംനഗർ'},
-    'warangal':{te:'వరంగల్',kn:'ವರంగಲ್',hi:'वारंगल',mr:'वारंगल',ml:'വാറംഗൽ'},
+    'warangal':{te:'వరంగల్',kn:'ವರంగల్',hi:'वारंगल',mr:'वारंगल',ml:'വാറംഗൽ'},
     'khammam':{te:'ఖమ్మం',kn:'ಖಮ್ಮಂ',hi:'खम्मम',mr:'खम्मम',ml:'ഖമ്മം'},
     'nalgonda':{te:'నల్గొండ',kn:'ನಲ್ಗೊಂಡ',hi:'नलगोंडा',mr:'नलगोंडा',ml:'നൽഗൊണ്ട'},
     'mahbubnagar':{te:'మహబూబ్‌నగర్',kn:'ಮಹಬೂಬ್‌ನಗರ್',hi:'महबूबनगर',mr:'महबूबनगर',ml:'മഹബൂബ്‌നഗർ'},
@@ -371,11 +371,11 @@ const D = {
     'vijayawada':{te:'విజయవాడ',kn:'ವಿಜಯವಾಡ',hi:'विजयवाड़ा',mr:'विजयवाडा',ml:'വിജയവാഡ'},
     'visakhapatnam':{te:'విశాఖపట్నం',kn:'ವಿಶಾಖಪಟ್ಟಣಂ',hi:'विशाखापत्तनम',mr:'विशाखापट्टणम',ml:'വിശാഖപട്ടണം'},
     'vizag':{te:'విశాఖపట్నం',kn:'ವಿಶಾಖಪಟ್ಟಣಂ',hi:'विशाखापत्तनम',mr:'विशाखापट्टणम',ml:'വിശാഖപട്ടണം'},
-    'guntur':{te:'గుంటూరు',kn:'ಗುಂಟೂರು',hi:'गुंटूर',mr:'गुंटूर',ml:'ഗുണ്ടൂർ'},
+    'guntur':{te:'గుంటూరు',kn:'ಗುంటೂರು',hi:'गुंटूर',mr:'गुंटूर',ml:'ഗുണ്ടൂർ'},
     'nellore':{te:'నెల్లూరు',kn:'ನೆల్లೂರು',hi:'नेल्लोर',mr:'नेल्लोर',ml:'നെല്ലൂർ'},
     'tirupati':{te:'తిరుపతి',kn:'ತಿರುಪತಿ',hi:'तिरुपति',mr:'तिरुपती',ml:'തിരുപ്പതി'},
     'kurnool':{te:'కర్నూలు',kn:'ಕರ್ನೂಲು',hi:'कर्नूल',mr:'कर्नूल',ml:'കർനൂൽ'},
-    'anantapur':{te:'అనంతపురం',kn:'ಅನಂತಪುರ',hi:'अनंतपुर',mr:'अनंतपुर',ml:'അനന്തപുർ'},
+    'anantapur':{te:'అనంతపురం',kn:'ಅనంతಪುರ',hi:'अनंतपुर',mr:'अनंतपुर',ml:'അനന്തപുർ'},
     'kadapa':{te:'కడప',kn:'కడప',hi:'कडपा',mr:'कडपा',ml:'കഡപ'},
     'ongole':{te:'ఒంగోలు',kn:'ಒಂಗೋಲು',hi:'ओंगोल',mr:'ओंगोल',ml:'ഒൻഗോൾ'},
     'rajahmundry':{te:'రాజమహేంద్రవరం',kn:'ರಾಜಮಹೇಂದ್ರವರಂ',hi:'राजमहेंद्री',mr:'राजमहेंद्री',ml:'രാജമഹേന്ദ്രവരം'},
@@ -385,7 +385,7 @@ const D = {
     'suryapet':{te:'సూర్యాపేట',kn:'ಸೂರ್ಯಾಪೇಟ',hi:'सूर्यापेट',mr:'सूर्यापेट',ml:'സൂര്യാപേട്ട'},
     'miryalaguda':{te:'మిర్యాలగూడ',kn:'ಮಿರ್ಯಾಲಗೂಡ',hi:'मिर्यालगुडा',mr:'मिर्यालगुडा',ml:'മിര്യാലഗൂഡ'},
     'bhongir':{te:'భువనగిరి',kn:'ಭುವನಗಿರಿ',hi:'भुवनगिरी',mr:'भुवनगिरी',ml:'ഭുവനഗിരി'},
-    'jadcherla':{te:'జడ్చర్ల',kn:'ಜಡ್ಚರ್ಲ',hi:'जडचर्ला',mr:'जडचर्ला',ml:'ജഡ്ചರ್ಲ'},
+    'jadcherla':{te:'జడ్చర్ల',kn:'ಜಡ್ಚರ್ಲ',hi:'जडचर्ला',mr:'जडचर्ला',ml:'ಜಡ್ಚರ್ಲ'},
     'kothagudem':{te:'కొత్తగూడెం',kn:'ಕೊತ್ತಗೂಡೆಂ',hi:'कोत्तागुडेम',mr:'कोत्तागुडेम',ml:'കൊത്തഗുഡേം'},
     'mancherial':{te:'మంచిర్యాల',kn:'ಮಂಚಿರ್ಯಾಲ',hi:'मंचेरियाल',mr:'मंचेरियाल',ml:'മഞ്ചേരിയൽ'},
     'zaheerabad':{te:'జహీరాబాద్',kn:'ಜಹೀರಾಬಾದ್',hi:'जहीराबाद',mr:'जहीराबाद',ml:'സഹീറാബാദ്'},
@@ -393,7 +393,7 @@ const D = {
     // ── KARNATAKA ─────────────────────────────────────────────────
     'bangalore':{te:'బెంగళూరు',kn:'ಬೆಂಗಳೂರು',hi:'बैंगलोर',mr:'बेंगलोर',ml:'ബെംഗളൂരു'},
     'bengaluru':{te:'బెంగళూరు',kn:'ಬೆಂಗಳೂರು',hi:'बैंगलोर',mr:'बेंगलोर',ml:'ബെംഗളൂരു'},
-    'hoskote':{te:'హోస్కోట',kn:'ಹೊಸಕೋಟೆ',hi:'होस्कोट',mr:'होस्कोट',ml:'ಹോസ്കോട്ടೆ'},
+    'hoskote':{te:'హోస్కోట',kn:'ಹೊಸಕೋಟೆ',hi:'होस्कोट',mr:'होस्कोट',ml:'ಹೋಸ್ಕോട്ടೆ'},
     'nelmangla':{te:'నేలమంగల',kn:'ನೆಲಮಂಗಲ',hi:'नेलमंगला',mr:'नेलमंगला',ml:'ನೆಲಮಂಗಲ'},
     'kolar':{te:'కోలార్',kn:'ಕೋಲಾರ್',hi:'कोलार',mr:'कोलार',ml:'ಕೋಲಾರ್'},
     'tumkur':{te:'తుమకూరు',kn:'ತುಮಕೂರು',hi:'तुमकुर',mr:'तुमकुर',ml:'ತುಮകൂരു'},
@@ -410,7 +410,7 @@ const D = {
     'kalaburagi':{te:'కలబుర్గి',kn:'ಕಲಬುರಗಿ',hi:'कलबुरगी',mr:'कलबुर्गी',ml:'കലബുർഗ'},
     'bellary':{te:'బళ్ళారి',kn:'ಬಳ್ಳಾರಿ',hi:'बेल्लारी',mr:'बेल्लारी',ml:'ബല്ലാരി'},
     'raichur':{te:'రాయచూర్',kn:'ರಾಯಚೂರು',hi:'रायचूर',mr:'रायचूर',ml:'റായ്ಚൂർ'},
-    'bidar':{te:'బీదర్',kn:'ಬೀದర్',hi:'बीदर',mr:'बीदर',ml:'ಬೀದರ್'},
+    'bidar':{te:'బీదర్',kn:'ಬೀದರ್',hi:'बीदर',mr:'बीदर',ml:'ಬೀದರ್'},
     'shimoga':{te:'శివమొగ్గ',kn:'ಶಿವಮೊಗ್ಗ',hi:'शिवमोग्गा',mr:'शिवमोगा',ml:'ഷിമോഗ'},
     'davangere':{te:'దావణగెరె',kn:'ದಾವಣಗೆರೆ',hi:'दावणगेरे',mr:'दावणगेरे',ml:'ದಾವಣಗೇರೆ'},
     'hassan':{te:'హాసన్',kn:'ಹಾಸನ್',hi:'हासन',mr:'हासन',ml:'ಹಾസൻ'},
@@ -432,7 +432,7 @@ const D = {
     'nashik':{te:'నాసిక్',kn:'ನಾಸಿಕ್',hi:'नासिक',mr:'नाशिक',ml:'നാസിക്'},
     'aurangabad':{te:'ఔరంగాబాద్',kn:'ಔರಂಗಾಬಾದ್',hi:'औरंगाबाद',mr:'औरंगाबाद',ml:'ഔറംഗബാദ്'},
     'solapur':{te:'సోలాపూర్',kn:'ಸೊಲಾಪುರ',hi:'सोलापुर',mr:'सोलापूर',ml:'സോലാപൂർ'},
-    'kolhapur':{te:'కోల్హాపూర్',kn:'ಕೊಲ್ಹಾಪುರ',hi:'कोल्हापुर',mr:'कोल्हापूर',ml:'കൊൽഹാപൂർ'},
+    'kolhapur':{te:'కోల్హాపూర్',kn:'ಕೊಲ್ಹಾಪುರ',hi:'कोल्हापुर',mr:'कोल्हापूर',ml:'കൊൽഹാपൂർ'},
     'thane':{te:'థానే',kn:'ಠಾಣೆ',hi:'ठाणे',mr:'ठाणे',ml:'താനെ'},
     'navi mumbai':{te:'నవీ ముంబై',kn:'ನವಿ ಮುಂಬೈ',hi:'नवी मुंबई',mr:'नवी मुंबई',ml:'നവി മുംബൈ'},
     'bhiwandi':{te:'భివాండి',kn:'ಭಿವಾಂಡಿ',hi:'भिवंडी',mr:'भिवंडी',ml:'ഭിവാണ്ടി'},
@@ -495,7 +495,7 @@ const D = {
     'lucknow':{te:'లక్నో',kn:'ಲಕ್ನೋ',hi:'लखनऊ',mr:'लखनौ',ml:'ലഖ്‌നൗ'},
     'agra':{te:'ఆగ్రా',kn:'ಆಗ್ರಾ',hi:'आगरा',mr:'आग्रा',ml:'ആഗ്ര'},
     'kanpur':{te:'కాన్పూర్',kn:'ಕಾನ್ಪುರ',hi:'कानपुर',mr:'कानपूर',ml:'കാൺപൂർ'},
-    'varanasi':{te:'వారణాసి',kn:'ವಾರಾಣಸಿ',hi:'वाराणसी',mr:'वाराणसी',ml:'വാരാണസി'},
+    'varanasi':{te:'వారణాసి',kn:'ವಾರಾಣಸಿ',hi:'वाराणसी',mr:'वाराणसी',ml:'വാराणसी'},
     'allahabad':{te:'అలహాబాద్',kn:'ಅಲಹಾಬಾದ್',hi:'इलाहाबाद',mr:'अलाहाबाद',ml:'അലഹബാദ്'},
     'prayagraj':{te:'ప్రయాగ్‌రాజ్',kn:'ಪ್ರಯಾಗ್‌ರಾಜ್',hi:'प्रयागराज',mr:'प्रयागराज',ml:'പ്രയാഗ്‌രാജ്'},
     'meerut':{te:'మీరట్',kn:'ಮೀರತ್',hi:'मेरठ',mr:'मेरठ',ml:'മീററ്റ്'},
@@ -622,7 +622,7 @@ const D = {
     'machinery':{te:'యంత్రాలు',kn:'ಯಂತ್ರಗಳು',hi:'मशीनरी',mr:'यंत्रसामग्री',ml:'യന്ത്രങ്ങൾ'},
     'furniture':{te:'ఫర్నీచర్',kn:'ಫರ್ನಿಚರ್',hi:'फर्नीचर',mr:'फर्निचर',ml:'ഫർണിച്ചർ'},
     'garments':{te:'వస్త్రాలు',kn:'ಉಡುಪುಗಳು',hi:'कपड़े',mr:'कपडे',ml:'വസ്ത്രങ്ങൾ'},
-    'electronics':{te:'ఎలక్ట్రానిక్స్',kn:'ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್',hi:'इलेक्ट्रॉनिक्स',mr:'इलेक्ट्रॉनिक्स',ml:'ഇലക്ട്രോണിക്സ്'},
+    'electronics':{te:'ఎలక్ట్రానిక్స్',kn:'ಎಲೆಕ್ಟ್ರಾನಿక్స్',hi:'इलेक्ट्रॉनिक्स',mr:'इलेक्ट्रॉनिक्स',ml:'ഇലക്ട്രോണിക്സ്'},
     'raw material':{te:'ముడిసరుకు',kn:'ಕಚ್ಚಾ ಸಾಮಾಗ್ರಿ',hi:'कच्चा माल',mr:'कच्चा माल',ml:'അസംസ്കൃത വസ്തു'},
     
     'material':{te:'పదార్థం',kn:'ವಸ್ತು',hi:'सामग्री',mr:'साहित्य',ml:'വസ്തു'},
@@ -632,7 +632,7 @@ const D = {
     'sugar':{te:'చక్కెర',kn:'ಸಕ್ಕರೆ',hi:'चीनी',mr:'साखर',ml:'പഞ്ചസാര'},
     'salt':{te:'ఉప్పు',kn:'ಉಪ್ಪು',hi:'नमक',mr:'मीठ',ml:'ഉപ്പ്'},
     'oil':{te:'నూనె',kn:'ಎಣ್ಣೆ',hi:'तेल',mr:'तेल',ml:'ಎಣ್ಣ'},
-    'gas cylinders':{te:'గ్యాస్ సిలిండర్లు',kn:'ಗ್ಯಾಸ್ ಸಿಲಿಂಡರ್‌ಗಳು',hi:'गैस सिलेंडर',mr:'गॅस सिलेंडर',ml:'ഗ്യാസ് സിലിണ്ടറുകൾ'},
+    'gas cylinders':{te:'గ్యాస్ సిలిండర్లు',kn:'ಗ್ಯಾಸ್ ಸಿಲಿಂಡರ್‌ಗಳು',hi:'गैस सिलेंडर',mr:'गॅस सिलेंडर',ml:'ഗ്യാസ് सിലിണ്ടറുകൾ'},
     'tyres':{te:'టైర్లు',kn:'ಟೈರ್‌ಗಳು',hi:'टायर',mr:'टायर',ml:'ടയറുകൾ'},
     'vehicle parts':{te:'వాహన భాగాలు',kn:'ವಾಹನ ಭಾಗಗಳು',hi:'वाहन के पुर्जे',mr:'वाहन सुटे भाग',ml:'വാഹന ഭാഗങ്ങൾ'},
     'milk':{te:'పాలు',kn:'ಹಾಲು',hi:'दूध',mr:'दूध',ml:'പാൽ'},
@@ -679,7 +679,7 @@ const D = {
     'chillies':{te:'మిరపకాయలు',kn:'ಮೆಣಸಿನಕಾಯಿ',hi:'मिर्च',mr:'मिरची',ml:'മുളക്'},
     'red chillies':{te:'ఎండు మిర్చి',kn:'ಒಣ ಮೆಣಸಿನಕಾಯಿ',hi:'लाल मिर्च',mr:'लाल मिरची',ml:'വറ്റൽ മുളക്'},
     'turmeric':{te:'పసుపు',kn:'ಅರಿಶಿನ',hi:'हल्दी',mr:'हळद',ml:'മഞ്ഞൾ'},
-    'onion':{te:'ఉల్లిపాయలు',kn:'ಈರುಳ್ಳಿ',hi:'प्याज',mr:'कांदा',ml:'ഉള്ളി'},
+    'onion':{te:'ఉల్లిపాయలు',kn:'ఈರುಳ್ಳಿ',hi:'प्याज',mr:'कांदा',ml:'ഉള്ളി'},
     'tomato':{te:'టమాటా',kn:'ಟೊಮೆಟೊ',hi:'टमाटर',mr:'टोमॅटो',ml:'തക്കാളി'},
     'potato':{te:'బంగాళాదుంప',kn:'ಆಲೂಗಡ್ಡೆ',hi:'आलू',mr:'बटाटा',ml:'ഉരുളക്കിഴങ്ങ്'},
     'jaggery':{te:'బెల్లం',kn:'ಬೆಲ್ಲ',hi:'गुड़',mr:'गूळ',ml:'ശർക്കര'},
@@ -970,7 +970,7 @@ async function updatePreview() {
     
     const btn = document.createElement('button');
     btn.className='copy-float'; btn.textContent='Copy';
-    btn.onclick = () => copyTextToClipboard(buildMessage()); // <--- UPDATED TO USE ROBUST COPY
+    btn.onclick = () => copyTextToClipboard(buildMessage()); 
     box.appendChild(btn);
     
     if(nonEng.length){
@@ -980,7 +980,7 @@ async function updatePreview() {
             box.textContent = buildMessage();
             const btn2 = document.createElement('button');
             btn2.className='copy-float'; btn2.textContent='Copy';
-            btn2.onclick = () => copyTextToClipboard(buildMessage()); // <--- UPDATED TO USE ROBUST COPY
+            btn2.onclick = () => copyTextToClipboard(buildMessage()); 
             box.appendChild(btn2);
         }, 600);
     }
