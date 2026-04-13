@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="RRP ENTERPRISES">
+<meta name="theme-color" content="#1B3A6B">
+
+<title>RRP ENTERPRISES</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{ --navy-dark:#0d1f3c;--navy:#1B3A6B;--gold:#C9A227;--gold-light:#e2b93b; --white:#fff;--gray:#7a90b0;--green:#1a9e5c;--red:#e03e3e; --border:rgba(201,162,39,0.2); }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'DM Sans',sans-serif;background:var(--navy-dark);min-height:100vh;color:var(--white);overflow-x:hidden;}
+header{background:linear-gradient(135deg,#0d1f3c,#1b3a6b);border-bottom:2px solid var(--gold);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:100;box-shadow:0 4px 24px rgba(0,0,0,.5);}
+.logo{display:flex;align-items:center;gap:10px;}
+.logo-mark{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;color:#0d1f3c;}
+.logo-text{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;letter-spacing:1.5px;line-height:1.1;}
+.logo-text small{display:block;font-size:10px;font-weight:500;color:var(--gold);letter-spacing:2px;}
+.live-pill{background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:1px;display:flex;align-items:center;gap:4px;}
+.live-dot{width:5px;height:5px;background:#fff;border-radius:50%;animation:blink 1.4s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.container{max-width:820px;margin:0 auto;padding:16px 12px 60px;}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+.stat{background:rgba(27,58,107,.4);border:1px solid var(--border);border-radius:10px;padding:11px 8px;text-align:center;}
+.stat-n{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1;}
+.stat-l{font-size:10px;color:var(--gray);letter-spacing:.8px;text-transform:uppercase;margin-top:2px;}
+.sec-title{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.sec-title::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--gold),transparent);}
+.card{background:linear-gradient(160deg,rgba(27,58,107,.4),rgba(13,31,60,.7));border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px;}
+label{font-size:10px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--gray);display:block;margin-bottom:5px;}
+input,select,textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:9px 11px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:all .2s;width:100%;-webkit-appearance:none;}
+input::placeholder,textarea::placeholder{color:rgba(255,255,255,.22);}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);background:rgba(201,162,39,.07);box-shadow:0 0 0 3px rgba(201,162,39,.1);}
+select option{background:#0d1f3c;color:#fff;}
+textarea{resize:none;height:60px;}
+.fg{margin-bottom:12px;}
+.chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{padding:6px 13px;border-radius:20px;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--gray);font-size:12px;font-weight:500;cursor:pointer;transition:all .18s;font-family:'DM Sans',sans-serif;user-select:none;}
+.chip.sel{background:var(--gold);border-color:var(--gold);color:#0d1f3c;font-weight:700;}
+.chip-lbl{font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--gray);margin-bottom:6px;}
+.load-entries{display:flex;flex-direction:column;gap:10px;margin-bottom:12px;}
+.load-entry{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;animation:fadeIn .25s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.entry-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.entry-num{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;color:var(--gold);letter-spacing:1px;}
+.entry-del{background:none;border:none;color:rgba(255,80,80,.5);cursor:pointer;font-size:20px;line-height:1;padding:0 2px;transition:color .2s;}
+.entry-del:hover{color:var(--red);}
+.route-row{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:end;margin-bottom:12px;}
+.arrow{color:var(--gold);font-size:20px;font-weight:700;text-align:center;padding-bottom:9px;}
+.add-entry-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border:1px dashed rgba(201,162,39,.4);border-radius:8px;color:var(--gold);font-size:13px;font-weight:600;cursor:pointer;background:transparent;width:100%;font-family:'Rajdhani',sans-serif;letter-spacing:1px;transition:all .2s;}
+.add-entry-btn:hover{background:rgba(201,162,39,.08);border-color:var(--gold);}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;border:none;border-radius:8px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .2s;padding:11px 14px;}
+.btn:hover{transform:translateY(-1px);}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#0d1f3c;}
+.btn-gold:hover{filter:brightness(1.08);}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--gray);}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.btn-outline{background:rgba(201,162,39,.1);border:1px solid rgba(201,162,39,.3);color:var(--gold);}
+.btn-sm{padding:8px 12px;font-size:12px;}
+.btn-row{display:flex;gap:8px;margin-top:12px;}
+.prev-box{background:#060f1e;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:14px;font-size:13px;line-height:1.9;color:#b8ccec;white-space:pre-wrap;min-height:100px;position:relative;font-family:'DM Sans',sans-serif;}
+.prev-ph{color:rgba(255,255,255,.18);font-style:italic;}
+.copy-float{position:absolute;top:10px;right:10px;background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.3);color:var(--gold);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.copy-float:hover{background:rgba(201,162,39,.25);}
+.grp-list{display:flex;flex-direction:column;gap:7px;margin-bottom:10px;}
+.grp-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:9px 12px;}
+.grp-item input[type=checkbox]{width:17px;height:17px;accent-color:var(--gold);cursor:pointer;flex-shrink:0;}
+.grp-name{flex:1;font-size:13px;font-weight:500;}
+.grp-num{font-size:11px;color:var(--gray);}
+.grp-del{background:none;border:none;color:rgba(255,80,80,.5);cursor:pointer;font-size:16px;padding:0 3px;transition:color .2s;}
+.grp-del:hover{color:var(--red);}
+.add-grp-row{display:flex;gap:8px;flex-wrap:wrap;}
+.add-grp-row input{flex:1;min-width:120px;}
+.bcast-info{font-size:12px;color:var(--gray);margin:10px 0 8px;}
+.bcast-info span{color:var(--gold);font-weight:600;}
+.btn-bcast{width:100%;padding:14px;border-radius:8px;border:none;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#25D366,#1da851);color:#fff;}
+.btn-bcast:hover{filter:brightness(1.08);}
+.btn-bcast:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+.hist-item{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:11px 13px;margin-bottom:8px;display:flex;align-items:flex-start;gap:11px;transition:border-color .2s;animation:fadeIn .3s ease;}
+.hist-item:hover{border-color:rgba(201,162,39,.3);}
+.hist-icon{width:36px;height:36px;background:rgba(201,162,39,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.hist-info{flex:1;min-width:0;}
+.hist-route{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hist-route em{color:var(--gold);font-style:normal;}
+.hist-meta{font-size:11px;color:var(--gray);margin-top:3px;display:flex;gap:6px;flex-wrap:wrap;}
+.tag{background:rgba(27,58,107,.8);border:1px solid rgba(255,255,255,.08);padding:2px 6px;border-radius:4px;font-size:10px;color:#90a8c8;}
+.hist-acts{display:flex;flex-direction:column;gap:4px;flex-shrink:0;}
+.hist-time{font-size:10px;color:rgba(255,255,255,.25);text-align:right;}
+.mb{padding:5px 9px;border-radius:6px;border:none;font-size:11px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;display:flex;align-items:center;gap:3px;white-space:nowrap;}
+.mb-wa{background:rgba(37,211,102,.12);color:#25D366;border:1px solid rgba(37,211,102,.2);}
+.mb-wa:hover{background:rgba(37,211,102,.22);}
+.mb-del{background:rgba(192,57,43,.1);color:#e74c3c;border:1px solid rgba(192,57,43,.18);}
+.mb-del:hover{background:rgba(192,57,43,.22);}
+.empty{text-align:center;padding:24px;color:rgba(255,255,255,.2);}
+.empty-icon{font-size:30px;margin-bottom:5px;}
+.empty-txt{font-size:12px;}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);border:1px solid var(--gold);color:#fff;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:500;z-index:999;transition:transform .3s ease;box-shadow:0 8px 32px rgba(0,0,0,.5);white-space:nowrap;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+.divider{height:1px;background:rgba(255,255,255,.07);margin:14px 0;}
+.miss-note{font-size:11px;color:rgba(201,162,39,.7);margin-top:6px;padding:6px 10px;background:rgba(201,162,39,.07);border-radius:6px;display:none;}
+.miss-note.show{display:block;}
+@media(max-width:480px){
+.route-row{grid-template-columns:1fr;gap:6px;}
+.arrow{padding-bottom:0;text-align:left;}
+.btn-row{flex-direction:column;}
+.add-grp-row{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-mark">RRP</div>
+        <div class="logo-text">ENTERPRISES<small>LOAD BOARD</small></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+        <button id="installBtn" onclick="triggerInstall()" style="display:none;align-items:center;gap:5px;background:linear-gradient(135deg,#C9A227,#e2b93b);color:#0d1f3c;border:none;border-radius:20px;padding:4px 12px;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;cursor:pointer;">⬇ INSTALL</button>
+        <div class="live-pill"><div class="live-dot"></div>LIVE</div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="stats-row">
+        <div class="stat"><div class="stat-n" id="stat-today">0</div><div class="stat-l">Today</div></div>
+        <div class="stat"><div class="stat-n" id="stat-total">0</div><div class="stat-l">Total</div></div>
+        <div class="stat"><div class="stat-n" id="stat-sent">0</div><div class="stat-l">WA Sent</div></div>
+    </div>
+
+    <div class="sec-title">📦 Post Load</div>
+    <div class="card">
+        <div id="loadEntries" class="load-entries"></div>
+        <button class="add-entry-btn" onclick="addEntry()">＋ ADD ANOTHER LOAD</button>
+        
+        <div class="divider"></div>
+
+        <div class="fg">
+            <div class="chip-lbl">📝 Message Languages</div>
+            <div class="chips" id="langChips">
+                <button class="chip sel" data-lang="en" onclick="toggleLang(this)">English</button>
+                <button class="chip sel" data-lang="te" onclick="toggleLang(this)">తెలుగు Telugu</button>
+                <button class="chip sel" data-lang="kn" onclick="toggleLang(this)">ಕನ್ನಡ Kannada</button>
+                <button class="chip" data-lang="hi" onclick="toggleLang(this)">हिंदी Hindi</button>
+                <button class="chip" data-lang="mr" onclick="toggleLang(this)">मराठी Marathi</button>
+                <button class="chip" data-lang="ml" onclick="toggleLang(this)">മലയാളം Malayalam</button>
+            </div>
+        </div>
+        
+        <div class="fg">
+            <label>Contact</label>
+            <select id="contact" onchange="updatePreview()">
+                <option value="9494831803|9014884668">9494831803 / 9014884668</option>
+                <option value="9014884668|9494831803">9014884668 / 9494831803</option>
+            </select>
+        </div>
+
+        <div class="fg">
+            <label>Default WhatsApp Link (optional)</label>
+            <input type="url" id="waLink" placeholder="https://chat.whatsapp.com/..." oninput="updatePreview()">
+        </div>
+
+        <div class="fg">
+            <label>Remarks (optional)</label>
+            <textarea id="remarks" placeholder="e.g. LOAD AVAILABLE, open body needed..." oninput="updatePreview()"></textarea>
+        </div>
+
+        <div id="missNote" class="miss-note"></div>
+
+        <div class="btn-row">
+            <button class="btn btn-ghost" onclick="clearAll()" style="flex:0;padding:11px 16px;">✕ Clear</button>
+            <button class="btn btn-gold" onclick="saveToBoard()" style="flex:1;">＋ Add to Board</button>
+        </div>
+    </div>
+
+    <div class="sec-title">👁️ Message Preview</div>
+    <div class="card" style="padding:14px;">
+        <div class="prev-box" id="prevBox">
+            <span class="prev-ph">Fill the form above to preview your WhatsApp message...</span>
+        </div>
+    </div>
+
+    <div class="sec-title">📲 WhatsApp Groups</div>
+    <div class="card">
+        <div class="grp-list" id="grpList"></div>
+        <div class="add-grp-row">
+            <input type="text" id="newGrpName" placeholder="Group name (e.g. RRP HYD)">
+            <input type="text" id="newGrpNum" placeholder="Phone with country code" style="max-width:190px;">
+            <input type="url" id="newGrpLink" placeholder="Specific Group Link (Optional)" style="margin-top:8px;">
+            <button class="btn btn-outline btn-sm" onclick="addGroup()" style="margin-top:8px;">＋ Add</button>
+        </div>
+        <div class="bcast-info">Selected: <span id="selCount">0</span> group(s)</div>
+        <button class="btn-bcast" id="bcastBtn" onclick="startBroadcast()" disabled>
+            <svg width="18" height="18" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.118 1.535 5.848L0 24l6.335-1.52A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.001-1.366l-.359-.214-3.721.893.926-3.62-.234-.372A9.8 9.8 0 012.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+            Broadcast to Selected Groups
+        </button>
+    </div>
+
+    <div class="sec-title">📋 Load History</div>
+    <div id="histList">
+        <div class="empty"><div class="empty-icon">🚛</div><div class="empty-txt">No loads posted yet.</div></div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// PWA SERVICE WORKER + MANIFEST (INLINE — works on any host)
+// ══════════════════════════════════════════════════════════════
+(function initPWA() {
+
+    // 1. Inject Web App Manifest via Blob URL
+    const manifest = {
+        "name": "RRP ENTERPRISES – Load Board",
+        "short_name": "RRP Loads",
+        "description": "RRP Enterprises Load Posting & WhatsApp Broadcast Tool",
+        "start_url": "./",
+        "scope": "./",
+        "display": "standalone",
+        "orientation": "portrait",
+        "background_color": "#0d1f3c",
+        "theme_color": "#1B3A6B",
+        "icons": [
+            {
+                "src": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='24' fill='%23C9A227'/%3E%3Ctext x='96' y='112' font-size='72' font-family='Arial Black,sans-serif' font-weight='900' fill='%230d1f3c' text-anchor='middle'%3ERRP%3C/text%3E%3C/svg%3E",
+                "sizes": "192x192",
+                "type": "image/svg+xml",
+                "purpose": "any"
+            },
+            {
+                "src": "data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='64' fill='%23C9A227'/%3E%3Ctext x='256' y='300' font-size='192' font-family='Arial Black,sans-serif' font-weight='900' fill='%230d1f3c' text-anchor='middle'%3ERRP%3C/text%3E%3C/svg%3E",
+                "sizes": "512x512",
+                "type": "image/svg+xml",
+                "purpose": "any maskable"
+            }
+        ]
+    };
+
+    const blob = new Blob([JSON.stringify(manifest)], {type: 'application/manifest+json'});
+    const mURL = URL.createObjectURL(blob);
+    const mLink = document.createElement('link');
+    mLink.rel = 'manifest';
+    mLink.href = mURL;
+    document.head.appendChild(mLink);
+
+    // 2. Register Inline Service Worker for offline + install prompt
+    if ('serviceWorker' in navigator) {
+        const swCode = `
+const CACHE = 'rrp-v1';
+self.addEventListener('install', e => {
+    self.skipWaiting();
+    e.waitUntil(
+        caches.open(CACHE).then(c => c.addAll([
+            self.location.pathname
+        ]).catch(()=>{}))
+    );
+});
+self.addEventListener('activate', e => {
+    e.waitUntil(clients.claim());
+});
+self.addEventListener('fetch', e => {
+    if (e.request.method !== 'GET') return;
+    e.respondWith(
+        fetch(e.request).then(res => {
+            const clone = res.clone();
+            caches.open(CACHE).then(c => c.put(e.request, clone));
+            return res;
+        }).catch(() => caches.match(e.request))
+    );
+});
+        `;
+        const swBlob = new Blob([swCode], {type: 'application/javascript'});
+        const swURL = URL.createObjectURL(swBlob);
+        navigator.serviceWorker.register(swURL, {scope: './'})
+            .then(() => console.log('✅ RRP SW registered'))
+            .catch(e => console.warn('SW reg failed:', e));
+    }
+
+    // 3. Capture install prompt for manual "Install App" button
+    window._deferredInstall = null;
+    window.addEventListener('beforeinstallprompt', e => {
+        e.preventDefault();
+        window._deferredInstall = e;
+        const btn = document.getElementById('installBtn');
+        if (btn) btn.style.display = 'flex';
+    });
+    window.addEventListener('appinstalled', () => {
+        const btn = document.getElementById('installBtn');
+        if (btn) btn.style.display = 'none';
+        window._deferredInstall = null;
+    });
+})();
+
+function triggerInstall() {
+    if (window._deferredInstall) {
+        window._deferredInstall.prompt();
+        window._deferredInstall.userChoice.then(r => {
+            if (r.outcome === 'accepted') toast('✅ App installed!');
+            window._deferredInstall = null;
+        });
+    } else {
+        toast('ℹ️ Open in Chrome → Menu → Add to Home Screen');
+    }
+}
+
+// ══════════════════════════════════════════════════════════════
+// ROBUST COPY FUNCTION - Works offline on Android local files
+// ══════════════════════════════════════════════════════════════
+function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    
+    // Avoid scrolling to bottom
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+        const successful = document.execCommand('copy');
+        if(successful) toast('📋 Copied!');
+        else toast('⚠️ Copy failed');
+    } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+        toast('⚠️ Copy failed');
+    }
+
+    document.body.removeChild(textArea);
+}
+
+function copyTextToClipboard(text) {
+    if (!navigator.clipboard || !window.isSecureContext) {
+        fallbackCopyTextToClipboard(text);
+        return;
+    }
+    navigator.clipboard.writeText(text).then(function() {
+        toast('📋 Copied!');
+    }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+        fallbackCopyTextToClipboard(text);
+    });
+}
+
+// ══════════════════════════════════════════════════════════════
+// MASSIVE DICTIONARY 
+// ══════════════════════════════════════════════════════════════
+const D = {
+    // ── ANDHRA PRADESH & TELANGANA ────────────────────────────────
+    'hyderabad':{te:'హైదరాబాద్',kn:'ಹೈದರಾಬಾದ್',hi:'हैदराबाद',mr:'हैदराबाद',ml:'ഹൈദരാബാദ്'},
+    'secunderabad':{te:'సికింద్రాబాద్',kn:'ಸಿಕಂದರಾಬಾದ್',hi:'सिकंदराबाद',mr:'सिकंदराबाद',ml:'സെക്കന്ദ്രാബാദ്'},
+    'medchal':{te:'మెద్చల్',kn:'ಮೆಡ್ಚಲ್',hi:'मेदचल',mr:'मेदचल',ml:'മെദ്ചൽ'},
+    'shadnagar':{te:'శాద్‌నగర్',kn:'ಶಾದ್‌ನಗರ್',hi:'शादनगर',mr:'शादनगर',ml:'ഷാദ്‌നഗർ'},
+    'jeedipally':{te:'జీడిపల్లి',kn:'ಜೀಡಿಪల్లి',hi:'जीदिपल्ली',mr:'जीदिपल्ली',ml:'ജീദിപ്പല്ലി'},
+    'patancheru':{te:'పటాన్‌చెరు',kn:'ಪಟಾನ್‌ಚೆರು',hi:'पटांचेरू',mr:'पटांचेरू',ml:'പടാൻചേരു'},
+    'sangareddy':{te:'సంగారెడ్డి',kn:'ಸಂಗಾರೆಡ್ಡಿ',hi:'संगारेड्डी',mr:'संगारेड्डी',ml:'സംഗാറെഡ്ഡി'},
+    'nizamabad':{te:'నిజామాబాద్',kn:'ನಿಜಾಮಾಬಾದ್',hi:'निजामाबाद',mr:'निजामाबाद',ml:'നിസാമാബാദ്'},
+    'karimnagar':{te:'కరీంనగర్',kn:'ಕರೀಂನಗರ್',hi:'करीमनगर',mr:'करीमनगर',ml:'കരീംനഗർ'},
+    'warangal':{te:'వరంగల్',kn:'ವರంగಲ್',hi:'वारंगल',mr:'वारंगल',ml:'വാറംഗൽ'},
+    'khammam':{te:'ఖమ్మం',kn:'ಖಮ್ಮಂ',hi:'खम्मम',mr:'खम्मम',ml:'ഖമ്മം'},
+    'nalgonda':{te:'నల్గొండ',kn:'ನಲ್ಗೊಂಡ',hi:'नलगोंडा',mr:'नलगोंडा',ml:'നൽഗൊണ്ട'},
+    'mahbubnagar':{te:'మహబూబ్‌నగర్',kn:'ಮಹಬೂಬ್‌ನಗರ್',hi:'महबूबनगर',mr:'महबूबनगर',ml:'മഹബൂബ്‌നഗർ'},
+    'adilabad':{te:'ఆదిలాబాద్',kn:'ಆದಿಲಾಬಾದ್',hi:'आदिलाबाद',mr:'आदिलाबाद',ml:'ആदിലാബാദ്'},
+    'vijayawada':{te:'విజయవాడ',kn:'ವಿಜಯವಾಡ',hi:'विजयवाड़ा',mr:'विजयवाडा',ml:'വിജയവാഡ'},
+    'visakhapatnam':{te:'విశాఖపట్నం',kn:'ವಿಶಾಖಪಟ್ಟಣಂ',hi:'विशाखापत्तनम',mr:'विशाखापट्टणम',ml:'വിശാഖപട്ടണം'},
+    'vizag':{te:'విశాఖపట్నం',kn:'ವಿಶಾಖಪಟ್ಟಣಂ',hi:'विशाखापत्तनम',mr:'विशाखापट्टणम',ml:'വിശാഖപട്ടണം'},
+    'guntur':{te:'గుంటూరు',kn:'ಗುಂಟೂರು',hi:'गुंटूर',mr:'गुंटूर',ml:'ഗുണ്ടൂർ'},
+    'nellore':{te:'నెల్లూరు',kn:'ನೆల్లೂರು',hi:'नेल्लोर',mr:'नेल्लोर',ml:'നെല്ലൂർ'},
+    'tirupati':{te:'తిరుపతి',kn:'ತಿರುಪತಿ',hi:'तिरुपति',mr:'तिरुपती',ml:'തിരുപ്പതി'},
+    'kurnool':{te:'కర్నూలు',kn:'ಕರ್ನೂಲು',hi:'कर्नूल',mr:'कर्नूल',ml:'കർനൂൽ'},
+    'anantapur':{te:'అనంతపురం',kn:'ಅನಂತಪುರ',hi:'अनंतपुर',mr:'अनंतपुर',ml:'അനന്തപുർ'},
+    'kadapa':{te:'కడప',kn:'కడప',hi:'कडपा',mr:'कडपा',ml:'കഡപ'},
+    'ongole':{te:'ఒంగోలు',kn:'ಒಂಗೋಲು',hi:'ओंगोल',mr:'ओंगोल',ml:'ഒൻഗോൾ'},
+    'rajahmundry':{te:'రాజమహేంద్రవరం',kn:'ರಾಜಮಹೇಂದ್ರವರಂ',hi:'राजमहेंद्री',mr:'राजमहेंद्री',ml:'രാജമഹേന്ദ്രവരം'},
+    'eluru':{te:'ఏలూరు',kn:'ಏಲೂರು',hi:'एलुरू',mr:'एलुरू',ml:'ഏലൂരു'},
+    'kakinada':{te:'కాకినాడ',kn:'ಕಾಕಿನಾಡ',hi:'काकीनाडा',mr:'काकीनाडा',ml:'കാക്കിനാഡ'},
+    'srikakulam':{te:'శ్రీకాకుళం',kn:'ಶ್ರೀಕಾಕುಳಂ',hi:'श्रीकाकुलम',mr:'श्रीकाकुलम',ml:'ശ്രീകാകുളം'},
+    'suryapet':{te:'సూర్యాపేట',kn:'ಸೂರ್ಯಾಪೇಟ',hi:'सूर्यापेट',mr:'सूर्यापेट',ml:'സൂര്യാപേട്ട'},
+    'miryalaguda':{te:'మిర్యాలగూడ',kn:'ಮಿರ್ಯಾಲಗೂಡ',hi:'मिर्यालगुडा',mr:'मिर्यालगुडा',ml:'മിര്യാലഗൂഡ'},
+    'bhongir':{te:'భువనగిరి',kn:'ಭುವನಗಿರಿ',hi:'भुवनगिरी',mr:'भुवनगिरी',ml:'ഭുവനഗിരി'},
+    'jadcherla':{te:'జడ్చర్ల',kn:'ಜಡ್ಚರ್ಲ',hi:'जडचर्ला',mr:'जडचर्ला',ml:'ജഡ്ചರ್ಲ'},
+    'kothagudem':{te:'కొత్తగూడెం',kn:'ಕೊತ್ತಗೂಡೆಂ',hi:'कोत्तागुडेम',mr:'कोत्तागुडेम',ml:'കൊത്തഗുഡേം'},
+    'mancherial':{te:'మంచిర్యాల',kn:'ಮಂಚಿರ್ಯಾಲ',hi:'मंचेरियाल',mr:'मंचेरियाल',ml:'മഞ്ചേരിയൽ'},
+    'zaheerabad':{te:'జహీరాబాద్',kn:'ಜಹೀರಾಬಾದ್',hi:'जहीराबाद',mr:'जहीराबाद',ml:'സഹീറാബാദ്'},
+    'siddipet':{te:'సిద్దిపేట',kn:'ಸಿದ್ದಿಪೇಟ',hi:'सिद्दिपेट',mr:'सिद्दिपेट',ml:'സിദ്ದಿപേട'},
+    // ── KARNATAKA ─────────────────────────────────────────────────
+    'bangalore':{te:'బెంగళూరు',kn:'ಬೆಂಗಳೂರು',hi:'बैंगलोर',mr:'बेंगलोर',ml:'ബെംഗളൂരു'},
+    'bengaluru':{te:'బెంగళూరు',kn:'ಬೆಂಗಳೂರು',hi:'बैंगलोर',mr:'बेंगलोर',ml:'ബെംഗളൂരു'},
+    'hoskote':{te:'హోస్కోట',kn:'ಹೊಸಕೋಟೆ',hi:'होस्कोट',mr:'होस्कोट',ml:'ಹോസ്കോട്ടೆ'},
+    'nelmangla':{te:'నేలమంగల',kn:'ನೆಲಮಂಗಲ',hi:'नेलमंगला',mr:'नेलमंगला',ml:'ನೆಲಮಂಗಲ'},
+    'kolar':{te:'కోలార్',kn:'ಕೋಲಾರ್',hi:'कोलार',mr:'कोलार',ml:'ಕೋಲಾರ್'},
+    'tumkur':{te:'తుమకూరు',kn:'ತುಮಕೂರು',hi:'तुमकुर',mr:'तुमकुर',ml:'ತುಮകൂരു'},
+    'mysore':{te:'మైసూర్',kn:'ಮೈಸೂರು',hi:'मैसूर',mr:'म्हैसूर',ml:'മൈസൂരു'},
+    'mysuru':{te:'మైసూర్',kn:'ಮೈಸೂರು',hi:'मैसूर',mr:'म्हैसूर',ml:'മൈസൂരു'},
+    'mangalore':{te:'మంగళూరు',kn:'ಮಂಗಳೂರು',hi:'मंगलोर',mr:'मंगलोर',ml:'ಮಂಗಲಾപുരം'},
+    'hubli':{te:'హుబ్లి',kn:'ಹುಬ್ಬಳ್ಳಿ',hi:'हुबली',mr:'हुबळी',ml:'ಹೂബ്ളി'},
+    'dharwad':{te:'ధార్వాడ',kn:'ಧಾರವಾಡ',hi:'धारवाड़',mr:'धारवाड',ml:'ಧಾರ್ವಾಡ'},
+    'hubli dharwad':{te:'హుబ్లి ధార్వాడ',kn:'ಹುಬ್ಬಳ್ಳಿ ಧಾರವಾಡ',hi:'हुबली धारवाड़',mr:'हुबळी धारवाड',ml:'ಹೂബ്ളി ಧಾರ್ವಾಡ'},
+    'belgaum':{te:'బెల్గాం',kn:'ಬೆಳಗಾವಿ',hi:'बेलगाम',mr:'बेळगाव',ml:'ಬೆಲ್ಗാം'},
+    'belagavi':{te:'బెళగావి',kn:'ಬೆಳಗಾವಿ',hi:'बेलगावी',mr:'बेळगाव',ml:'ಬೇಗളವಿ'},
+    'bijapur':{te:'బీజాపూర్',kn:'ವಿಜಯಪುರ',hi:'बीजापुर',mr:'विजापूर',ml:'ബിജാപുർ'},
+    'gulbarga':{te:'కలబుర్గి',kn:'ಕಲಬುರಗಿ',hi:'गुलबर्गा',mr:'गुलबर्गा',ml:'ഗുൽബർഗ'},
+    'kalaburagi':{te:'కలబుర్గి',kn:'ಕಲಬುರಗಿ',hi:'कलबुरगी',mr:'कलबुर्गी',ml:'കലബുർഗ'},
+    'bellary':{te:'బళ్ళారి',kn:'ಬಳ್ಳಾರಿ',hi:'बेल्लारी',mr:'बेल्लारी',ml:'ബല്ലാരി'},
+    'raichur':{te:'రాయచూర్',kn:'ರಾಯಚೂರು',hi:'रायचूर',mr:'रायचूर',ml:'റായ്ಚൂർ'},
+    'bidar':{te:'బీదర్',kn:'ಬೀದర్',hi:'बीदर',mr:'बीदर',ml:'ಬೀದರ್'},
+    'shimoga':{te:'శివమొగ్గ',kn:'ಶಿವಮೊಗ್ಗ',hi:'शिवमोग्गा',mr:'शिवमोगा',ml:'ഷിമോഗ'},
+    'davangere':{te:'దావణగెరె',kn:'ದಾವಣಗೆರೆ',hi:'दावणगेरे',mr:'दावणगेरे',ml:'ದಾವಣಗೇರೆ'},
+    'hassan':{te:'హాసన్',kn:'ಹಾಸನ್',hi:'हासन',mr:'हासन',ml:'ಹಾസൻ'},
+    'mandya':{te:'మండ్య',kn:'ಮಂಡ್ಯ',hi:'मंड्या',mr:'मंड्या',ml:'ಮണ്ഡ್ಯ'},
+    'chikmagalur':{te:'చిక్కమగళూరు',kn:'ಚಿಕ್ಕಮಗಳೂರು',hi:'चिकमगलूर',mr:'चिकमगलूर',ml:'ಚಿಕಮಗಳೂರು'},
+    'kodagu':{te:'కొడగు',kn:'ಕೊಡಗು',hi:'कोडगु',mr:'कोडगु',ml:'ಕೊಡಗ್'},
+    'udupi':{te:'ఉడిపి',kn:'ಉಡುಪಿ',hi:'उडुपी',mr:'उडुपी',ml:'ಉಡುಪಿ'},
+    'chitradurga':{te:'చిత్రదుర్గ',kn:'ಚಿತ್ರದುರ್ಗ',hi:'चित्रदुर्गा',mr:'चित्रदुर्ग',ml:'ಚಿದ್ರದುರ್ಗ'},
+    'tumakuru':{te:'తుమకూరు',kn:'ತುಮಕೂರು',hi:'तुमकुरू',mr:'तुमकुरू',ml:'ತುಮಕೂರು'},
+    'hospet':{te:'హొస్పేట',kn:'ಹೊಸಪೇಟೆ',hi:'होस्पेट',mr:'होस्पेट',ml:'ಹೋಸ್ಪೇಟೆ'},
+    'gadag':{te:'గదగ్',kn:'ಗದಗ',hi:'गदग',mr:'गदग',ml:'ಗದಗ್'},
+    'bagalkot':{te:'బాగల్‌కోట్',kn:'ಬಾಗಲಕೋಟೆ',hi:'बागलकोट',mr:'बागलकोट',ml:'ಬಾಗಲಕೋಟೆ'},
+    'yadgir':{te:'యాద్గిర్',kn:'ಯಾದಗಿರ',hi:'यादगीर',mr:'यादगीर',ml:'ಯಾದಗಿರಿ'},
+    'koppal':{te:'కొಪ್ಪళ',kn:'ಕೊಪ್ಪಳ',hi:'कोप्पल',mr:'कोप्पल',ml:'ಕೊಪ್ಪಳ'},
+    // ── MAHARASHTRA ───────────────────────────────────────────────
+    'mumbai':{te:'ముంబై',kn:'ಮುಂಬೈ',hi:'मुंबई',mr:'मुंबई',ml:'മുംബൈ'},
+    'pune':{te:'పుణే',kn:'ಪುಣೆ',hi:'पुणे',mr:'पुणे',ml:'പൂനെ'},
+    'nagpur':{te:'నాగ్‌పూర్',kn:'ನಾಗ್‌ಪುರ',hi:'नागपुर',mr:'नागपूर',ml:'നാഗ്പൂർ'},
+    'nashik':{te:'నాసిక్',kn:'ನಾಸಿಕ್',hi:'नासिक',mr:'नाशिक',ml:'നാസിക്'},
+    'aurangabad':{te:'ఔరంగాబాద్',kn:'ಔರಂಗಾಬಾದ್',hi:'औरंगाबाद',mr:'औरंगाबाद',ml:'ഔറംഗബാദ്'},
+    'solapur':{te:'సోలాపూర్',kn:'ಸೊಲಾಪುರ',hi:'सोलापुर',mr:'सोलापूर',ml:'സോലാപൂർ'},
+    'kolhapur':{te:'కోల్హాపూర్',kn:'ಕೊಲ್ಹಾಪುರ',hi:'कोल्हापुर',mr:'कोल्हापूर',ml:'കൊൽഹാപൂർ'},
+    'thane':{te:'థానే',kn:'ಠಾಣೆ',hi:'ठाणे',mr:'ठाणे',ml:'താനെ'},
+    'navi mumbai':{te:'నవీ ముంబై',kn:'ನವಿ ಮುಂಬೈ',hi:'नवी मुंबई',mr:'नवी मुंबई',ml:'നവി മുംബൈ'},
+    'bhiwandi':{te:'భివాండి',kn:'ಭಿವಾಂಡಿ',hi:'भिवंडी',mr:'भिवंडी',ml:'ഭിവാണ്ടി'},
+    'amravati':{te:'అమరావతి',kn:'ಅಮರಾವತಿ',hi:'अमरावती',mr:'अमरावती',ml:'അമരാവతి'},
+    'nanded':{te:'నాందేడ్',kn:'ನಾಂದೇಡ್',hi:'नांदेड़',mr:'नांदेड',ml:'നാന്ദേദ്'},
+    'latur':{te:'లాతూర్',kn:'ಲಾತೂರ್',hi:'लातूर',mr:'लातूर',ml:'ലാതൂർ'},
+    'akola':{te:'అకోలా',kn:'ಅಕೋಲಾ',hi:'अकोला',mr:'अकोला',ml:'അക്കോല'},
+    'jalgaon':{te:'జాల్గావ్',kn:'ಜಲಗಾಂವ್',hi:'जलगांव',mr:'जळगाव',ml:'ജൽगാവ്'},
+    'dhule':{te:'ధులే',kn:'ಧುಳೆ',hi:'धुले',mr:'धुळे',ml:'ധൂലെ'},
+    'ahmednagar':{te:'అహ్మద్‌నగర్',kn:'ಅಹ್ಮದ್‌ನಗರ',hi:'अहमदनगर',mr:'अहमदनगर',ml:'അഹ്മദ്‌നഗർ'},
+    'ratnagiri':{te:'రత్నగిరి',kn:'ರತ್ನಗಿರಿ',hi:'रत्नागिरी',mr:'रत्नागिरी',ml:'രത്നഗിരി'},
+    'sangli':{te:'సాంగ్లి',kn:'ಸಾಂಗ್ಲಿ',hi:'सांगली',mr:'सांगली',ml:'സാംഗ്ലി'},
+    'satara':{te:'సతారా',kn:'ಸಾತಾರ',hi:'सातारा',mr:'सातारा',ml:'സതാര'},
+    'wardha':{te:'వార్ధా',kn:'ವಾರ್ಧಾ',hi:'वर्धा',mr:'वर्धा',ml:'വർദ'},
+    'yavatmal':{te:'యవత్మాల్',kn:'ಯವತ್ಮಾಲ್',hi:'यवतमाल',mr:'यवतमाल',ml:'യവത്മാൽ'},
+    'chandrapur':{te:'చంద్రపూర్',kn:'ಚಂದ್ರಾಪುರ',hi:'चंद्रपुर',mr:'चंद्रपूर',ml:'ചന്ദ്രപൂർ'},
+    'gadchiroli':{te:'గడ్చిరోలి',kn:'ಗಡ್ಚಿರೋಲಿ',hi:'गडचिरोली',mr:'गडचिरोली',ml:'ഗഡ്ചിരോലി'},
+    'shirdi':{te:'షిర్డీ',kn:'ಶಿರಡಿ',hi:'शिर्डी',mr:'शिर्डी',ml:'ഷിർദി'},
+    'mandideep':{te:'మండీదీప్',kn:'ಮಂಡೀದೀಪ್',hi:'मंडीदीप',mr:'मंडीदीप',ml:'മണ്ടിദീപ്'},
+    // ── MADHYA PRADESH ─────────────────────────────────────────────
+    'bhopal':{te:'భోపాల్',kn:'ಭೋಪಾಲ್',hi:'भोपाल',mr:'भोपाल',ml:'ഭോപ്പാൽ'},
+    'indore':{te:'ఇండోర్',kn:'ಇಂದೋರ್',hi:'इंदौर',mr:'इंदोर',ml:'ഇൻഡോർ'},
+    'gwalior':{te:'గ్వాలియర్',kn:'ಗ್ವಾಲಿಯರ್',hi:'ग्वालियर',mr:'ग्वाल्हेर',ml:'ഗ്വാളിയോർ'},
+    'jabalpur':{te:'జబల్‌పూర్',kn:'ಜಬಲ್‌ಪೂರ್',hi:'जबलपुर',mr:'जबलपूर',ml:'ജബൽപൂർ'},
+    'ujjain':{te:'ఉజ్జయిని',kn:'ಉಜ್ಜಯಿನಿ',hi:'उज्जैन',mr:'उज्जैन',ml:'ഉജ്జൈൻ'},
+    'ratlam':{te:'రత్లాం',kn:'ರತ್ಲಾಂ',hi:'रतलाम',mr:'रतलाम',ml:'റത്ലാം'},
+    'rewa':{te:'రేవా',kn:'ರೇವಾ',hi:'रीवा',mr:'रीवा',ml:'റേവ'},
+    'sagar':{te:'సాగర్',kn:'ಸಾಗರ್',hi:'सागर',mr:'सागर',ml:'സാഗർ'},
+    'satna':{te:'సత్న',kn:'ಸತ್ನ',hi:'सतना',mr:'सतना',ml:'സത്ന'},
+    'mp':{te:'మధ్యప్రదేశ్',kn:'ಮಧ್ಯಪ್ರದೇಶ',hi:'मध्यप्रदेश',mr:'मध्यप्रदेश',ml:'മദ്ധ്യപ്രദേശ്'},
+    'madhya pradesh':{te:'మధ్యప్రదేశ్',kn:'ಮಧ್ಯಪ್ರದೇಶ',hi:'मध्यप्रदेश',mr:'मध्यप्रदेश',ml:'മദ്ധ്യപ്രദേശ്'},
+    // ── GUJARAT ────────────────────────────────────────────────────
+    'ahmedabad':{te:'అహ్మదాబాద్',kn:'ಅಹಮದಾಬಾದ್',hi:'अहमदाबाद',mr:'अहमदाबाद',ml:'അഹ്മദാബാദ്'},
+    'surat':{te:'సూరత్',kn:'ಸೂರತ್',hi:'सूरत',mr:'सुरत',ml:'സൂറത്ത്'},
+    'vadodara':{te:'వడోదర',kn:'ವಡೋದರ',hi:'वडोदरा',mr:'वडोदरा',ml:'വഡോദര'},
+    'rajkot':{te:'రాజ్‌కోట్',kn:'ರಾಜ್‌ಕೋಟ್',hi:'राजकोट',mr:'राजकोट',ml:'രാജ്കോട്ട്'},
+    'bhavnagar':{te:'భావ్‌నగర్',kn:'ಭಾವ್‌ನಗರ',hi:'भावनगर',mr:'भावनगर',ml:'ഭാവ്‌നഗർ'},
+    'jamnagar':{te:'జామ్‌నగర్',kn:'ಜಾಮ್‌ನಗರ',hi:'जामनगर',mr:'जामनगर',ml:'ജാംനഗർ'},
+    'anand':{te:'ఆనంద్',kn:'ಆನಂದ್',hi:'आनंद',mr:'आनंद',ml:'ആനന്ദ്'},
+    'gandhinagar':{te:'గాంధీనగర్',kn:'ಗಾಂಧಿನಗರ',hi:'गांधीनगर',mr:'गांधीनगर',ml:'ഗാന്ധിനഗർ'},
+    'vapi':{te:'వాపీ',kn:'ವಾಪಿ',hi:'वापी',mr:'वापी',ml:'വാപ്പി'},
+    // ── DELHI / NCR ────────────────────────────────────────────────
+    'delhi':{te:'ఢిల్లీ',kn:'ದೆಹಲಿ',hi:'दिल्ली',mr:'दिल्ली',ml:'ഡൽഹി'},
+    'new delhi':{te:'న్యూ ఢిల్లీ',kn:'ನವ ದೆಹಲಿ',hi:'नई दिल्ली',mr:'नवी दिल्ली',ml:'ന്യൂ ഡൽഹി'},
+    'gurgaon':{te:'గుర్గావ్',kn:'ಗುರ್ಗಾಂವ್',hi:'गुड़गांव',mr:'गुरगाव',ml:'ഗുർഗ്ഗാവ്'},
+    'gurugram':{te:'గురుగ్రామ్',kn:'ಗುರುಗ್ರಾಮ್',hi:'गुरुग्राम',mr:'गुरुग्राम',ml:'ഗുരുഗ്രാം'},
+    'noida':{te:'నోయిడా',kn:'ನೋಯ್ಡಾ',hi:'नोएडा',mr:'नोएडा',ml:'നോയിഡ'},
+    'faridabad':{te:'ఫరీదాబాద్',kn:'ಫರೀದಾಬಾದ್',hi:'फरीदाबाद',mr:'फरीदाबाद',ml:'ഫരീദാബാദ്'},
+    'ghaziabad':{te:'గాజియాబాద్',kn:'ಗಾಜಿಯಾಬಾದ್',hi:'गाजियाबाद',mr:'गाझियाबाद',ml:'ഗാസിയാബാദ്'},
+    // ── RAJASTHAN ──────────────────────────────────────────────────
+    'jaipur':{te:'జయపూర్',kn:'ಜಯಪುರ',hi:'जयपुर',mr:'जयपूर',ml:'ജയ്പൂർ'},
+    'jodhpur':{te:'జోధ్‌పూర్',kn:'ಜೋಧ್‌ಪುರ',hi:'जोधपुर',mr:'जोधपूर',ml:'ജോഡ്പൂർ'},
+    'udaipur':{te:'ఉదయపూర్',kn:'ಉದಯಪುರ',hi:'उदयपुर',mr:'उदयपूर',ml:'ഉदയ്പൂർ'},
+    'ajmer':{te:'అజ్మేర్',kn:'ಅಜ್ಮೇರ್',hi:'अजमेर',mr:'अजमेर',ml:'അജ്‌മേർ'},
+    'kota':{te:'కోటా',kn:'ಕೋಟ',hi:'कोटा',mr:'कोटा',ml:'കോട്ട'},
+    'bikaner':{te:'బికానేర్',kn:'ಬಿಕಾನೇರ್',hi:'बीकानेर',mr:'बीकानेर',ml:'ಬിക്കാനേർ'},
+    'alwar':{te:'అల్వార్',kn:'ಅಲ್ವార్',hi:'अलवर',mr:'अलवर',ml:'അൽവാർ'},
+    'bharatpur':{te:'భరత్‌పూర్',kn:'ಭರತ್‌ಪುರ',hi:'भरतपुर',mr:'भरतपूर',ml:'ഭരത്പൂർ'},
+    // ── UTTAR PRADESH ──────────────────────────────────────────────
+    'lucknow':{te:'లక్నో',kn:'ಲಕ್ನೋ',hi:'लखनऊ',mr:'लखनौ',ml:'ലഖ്‌നൗ'},
+    'agra':{te:'ఆగ్రా',kn:'ಆಗ್ರಾ',hi:'आगरा',mr:'आग्रा',ml:'ആഗ്ര'},
+    'kanpur':{te:'కాన్పూర్',kn:'ಕಾನ್ಪುರ',hi:'कानपुर',mr:'कानपूर',ml:'കാൺപൂർ'},
+    'varanasi':{te:'వారణాసి',kn:'ವಾರಾಣಸಿ',hi:'वाराणसी',mr:'वाराणसी',ml:'വാരാണസി'},
+    'allahabad':{te:'అలహాబాద్',kn:'ಅಲಹಾಬಾದ್',hi:'इलाहाबाद',mr:'अलाहाबाद',ml:'അലഹബാദ്'},
+    'prayagraj':{te:'ప్రయాగ్‌రాజ్',kn:'ಪ್ರಯಾಗ್‌ರಾಜ್',hi:'प्रयागराज',mr:'प्रयागराज',ml:'പ്രയാഗ്‌രാജ്'},
+    'meerut':{te:'మీరట్',kn:'ಮೀರತ್',hi:'मेरठ',mr:'मेरठ',ml:'മീററ്റ്'},
+    'bareilly':{te:'బరేలీ',kn:'ಬರೇಲಿ',hi:'बरेली',mr:'बरेली',ml:'ബറേലി'},
+    'moradabad':{te:'మురాదాబాద్',kn:'ಮೊರಾದಾಬಾದ್',hi:'मुरादाबाद',mr:'मुरादाबाद',ml:'മൊറദാബാദ്'},
+    'gorakhpur':{te:'గోరఖ్‌పూర్',kn:'ಗೋರఖ್ಪುర',hi:'गोरखपुर',mr:'गोरखपूर',ml:'ഗോരఖ്പൂർ'},
+    // ── WEST BENGAL ─────────────────────────────────────────────────
+    'kolkata':{te:'కోల్‌కతా',kn:'ಕೋಲ್ಕತ್ತಾ',hi:'कोलकाता',mr:'कोलकाता',ml:'കൊൽക്കത്ത'},
+    'howrah':{te:'హౌరా',kn:'ಹೌರಾ',hi:'हावड़ा',mr:'हावडा',ml:'ഹൗറ'},
+    'durgapur':{te:'దుర్గాపూర్',kn:'ದುರ್ಗಾಪುರ',hi:'दुर्गापुर',mr:'दुर्गापूर',ml:'ദുർഗ്ഗാപൂർ'},
+    'asansol':{te:'ఆసన్‌సోల్',kn:'ಆಸನ್‌ಸೋಲ್',hi:'आसनसोल',mr:'आसनसोल',ml:'ആസൻസോൾ'},
+    // ── TAMIL NADU ────────────────────────────────────────────────
+    'chennai':{te:'చెన్నై',kn:'ಚೆನ್ನೈ',hi:'चेन्नई',mr:'चेन्नई',ml:'ചെന്നൈ'},
+    'coimbatore':{te:'కోయంబత్తూర్',kn:'ಕೊಯಮತ್ತೂರು',hi:'कोयंबटूर',mr:'कोइमतूर',ml:'കോഴിക്കോട്'},
+    'madurai':{te:'మధురై',kn:'ಮದುರೈ',hi:'मदुरई',mr:'मदुराई',ml:'മധുര'},
+    'trichy':{te:'తిరుచిరాపల్లి',kn:'ತಿರುಚಿರಾಪಳ್ಳಿ',hi:'तिरुचिरापल्ली',mr:'तिरुचिरापल्ली',ml:'തിരുച്ചിറപ്പള്ളി'},
+    'tiruchirappalli':{te:'తిరుచిరాపల్లి',kn:'ತಿರುಚಿರಾಪಳ್ಳಿ',hi:'तिरुचिरापल्ली',mr:'तिरुचिरापल्ली',ml:'തിരുച്ചിറപ്പള്ളി'},
+    'salem':{te:'సేలం',kn:'ಸೇಲಂ',hi:'सेलम',mr:'सेलम',ml:'സേലം'},
+    'tirunelveli':{te:'తిరునెల్వేలి',kn:'ತಿರುನೆಲ್ವೇಲಿ',hi:'तिरुनेलवेली',mr:'तिरुनेलवेली',ml:'തിരുനൽവേലി'},
+    'erode':{te:'ఈరోడ్',kn:'ಈರೋಡ್',hi:'इरोड',mr:'इरोड',ml:'ഈറോഡ്'},
+    'vellore':{te:'వెల్లూరు',kn:'ವೆಲ್ಲೂರು',hi:'वेल्लोर',mr:'वेल्लोर',ml:'വെല്ലൂർ'},
+    // ── KERALA ─────────────────────────────────────────────────────
+    'kochi':{te:'కొచ్చి',kn:'ಕೊಚ್ಚಿ',hi:'कोच्चि',mr:'कोची',ml:'കൊച്ചി'},
+    'cochin':{te:'కొచ్చి',kn:'ಕೊಚ್ಚಿ',hi:'कोच्चि',mr:'कोची',ml:'കൊച്ചി'},
+    'thiruvananthapuram':{te:'తిరువనంతపురం',kn:'ತಿರುವನಂತಪುರಂ',hi:'तिरुवनंतपुरम',mr:'तिरुवनंतपुरम',ml:'തിരുവനന്തപുരം'},
+    'trivandrum':{te:'తిరువనంతపురం',kn:'ತಿರುವನಂತಪುರಂ',hi:'तिरुवनंतपुरम',mr:'तिरुवनंतपुरम',ml:'തിരുവനന്തപുരം'},
+    'kozhikode':{te:'కోజికోడ్',kn:'ಕೋಝಿಕೋಡ್',hi:'कोझिकोड',mr:'कोझिकोड',ml:'കോഴിക്കോട്'},
+    'calicut':{te:'కాలికట్',kn:'ಕಾಲಿಕట్',hi:'कालीकट',mr:'कालीकट',ml:'കോഴിക്കോട്'},
+    'thrissur':{te:'త్రిస్సూర్',kn:'ತ್ರಿಶ್ಶೂರ್',hi:'त्रिशूर',mr:'त्रिशूर',ml:'തൃശ്ശൂർ'},
+    'malappuram':{te:'మలప్పురం',kn:'ಮಲಪ್ಪುರಂ',hi:'मलप्पुरम',mr:'मलप्पुरम',ml:'മലപ്പുറം'},
+    'palakkad':{te:'పాలక్కాడ్',kn:'ಪಾಲಕ್ಕಾಡ್',hi:'पालक्काड',mr:'पालक्काड',ml:'പാലക്കാട്'},
+    'kannur':{te:'కన్నూర్',kn:'ಕಣ್ಣೂರ್',hi:'कन्नूर',mr:'कन्नूर',ml:'കണ്ണൂർ'},
+    'kollam':{te:'కొల్లం',kn:'ಕೊಲ್ಲಂ',hi:'कोल्लम',mr:'कोल्लम',ml:'കൊല്ലം'},
+    // ── OTHER STATES ──────────────────────────────────────────────
+    'chandigarh':{te:'చండీగఢ్',kn:'ಚಂಡೀಗಢ',hi:'चंडीगढ़',mr:'चंडीगड',ml:'ചണ്ഡീഗഢ്'},
+    'ludhiana':{te:'లూధియానా',kn:'ಲುಧಿಯಾನ',hi:'लुधियाना',mr:'लुधियाना',ml:'ലൂധിയാന'},
+    'amritsar':{te:'అమృత్‌సర్',kn:'ಅಮೃತ್‌ಸರ',hi:'अमृतसर',mr:'अमृतसर',ml:'അമൃത്‌സർ'},
+    'bhubaneswar':{te:'భువనేశ్వర్',kn:'ಭುವನೇಶ್ವರ',hi:'भुवनेश्वर',mr:'भुवनेश्वर',ml:'ഭുവനേശ്വർ'},
+    'raipur':{te:'రాయపూర్',kn:'ರಾಯಪುರ',hi:'रायपुर',mr:'रायपूर',ml:'റായ്പൂർ'},
+    'ranchi':{te:'రాంచి',kn:'ರಾಂಚಿ',hi:'रांची',mr:'रांची',ml:'റാഞ്ചി'},
+    'patna':{te:'పాట్నా',kn:'ಪಾಟ್ನಾ',hi:'पटना',mr:'पटणा',ml:'പട്ന'},
+    'dehradun':{te:'డెహ్రాడూన్',kn:'ದೆಹರಾದೂನ್',hi:'देहरादून',mr:'देहरादून',ml:'ഡെഹ്‌റാഡൂൺ'},
+    'shimla':{te:'షిమ్లా',kn:'ಶಿಮ್ಲಾ',hi:'शिमला',mr:'शिमला',ml:'ഷിംല'},
+    'jammu':{te:'జమ్ము',kn:'ಜಮ್ಮು',hi:'जम्मू',mr:'जम्मू',ml:'ജമ്മು'},
+    'srinagar':{te:'శ్రీనగర్',kn:'ಶ್ರೀನಗರ',hi:'श्रीनगर',mr:'श्रीनगर',ml:'ശ്രീനഗർ'},
+    // ── RIVERS / REGIONS / EXTRA PLACES ──────────────────────────
+    'godavari':{te:'గోదావరి',kn:'ಗೋದಾವರಿ',hi:'गोदावरी',mr:'गोदावरी',ml:'ഗോദാവരി'},
+    'east godavari':{te:'తూర్పు గోదావరి',kn:'ಪೂರ್ವ ಗೋದಾವರಿ',hi:'पूर्व गोदावरी',mr:'पूर्व गोदावरी',ml:'കിഴക്കൻ ഗോദാവരി'},
+    'west godavari':{te:'పశ్చిమ గోదావరి',kn:'ಪಶ್ಚಿಮ ಗೋದಾವರಿ',hi:'पश्चिम गोदावरी',mr:'पश्चिम गोदावरी',ml:'പടിഞ്ഞാറൻ ഗോദാവരി'},
+    'krishna':{te:'కృష్ణా',kn:'ಕೃಷ್ಣ',hi:'कृष्णा',mr:'कृष्णा',ml:'കൃഷ്ണ'},
+    'godavarikhani':{te:'గోదావరిఖని',kn:'ಗೋದಾವರಿఖని',hi:'गोदावरीखनी',mr:'गोदावरीखनी',ml:'ഗോദാവരിఖని'},
+    'peddapalli':{te:'పెద్దపల్లి',kn:'ಪೆದ್ದಪల్లి',hi:'पेद्दापल्ली',mr:'पेद्दापल्ली',ml:'പെദ്ദപ്പള്ളി'},
+    'nirmal':{te:'నిర్మల్',kn:'ನಿರ್ಮಲ್',hi:'निर्मल',mr:'निर्मल',ml:'നിർമൽ'},
+    'jagtial':{te:'జగిత్యాల',kn:'ಜಗಿತ್ಯಾಲ',hi:'जगतियाल',mr:'जगतियाल',ml:'ജഗ്തിയൽ'},
+    'rajanna sircilla':{te:'రాజన్న సిరిసిల్ల',kn:'ರಾಜನ್ನ ಸಿರಿಸಿಲ್ಲ',hi:'राजन्ना सिरिसिल्ला',mr:'राजन्ना सिरिसिल्ला',ml:'രാജന്ന ಸಿರಿസില്ല'},
+    'bhadradri':{te:'భద్రాద్రి',kn:'ಭದ್ರಾದ್ರಿ',hi:'भद्राद्री',mr:'भद्राद्री',ml:'ഭദ്രാദ്രി'},
+    'mulugu':{te:'ములుగు',kn:'ಮುಲುಗು',hi:'मुलुगु',mr:'मुलुगु',ml:'മുലുഗു'},
+    'narayanpet':{te:'నారాయణపేట',kn:'ನಾರಾಯಣಪೇಟ',hi:'नारायणपेट',mr:'नारायणपेट',ml:'നാരായൺപേട്ട'},
+    'wanaparthy':{te:'వనపర్తి',kn:'ವನಪರ್ತಿ',hi:'वनपर्ती',mr:'वनपर्ती',ml:'വനപർഥി'},
+    'jogulamba':{te:'జోగులాంబ',kn:'ಜೋಗುಲಾಂಬ',hi:'जोगुलाम्बा',mr:'जोगुलाम्बा',ml:'ജോഗುലാംബ'},
+    'gadwal':{te:'గద్వాల్',kn:'ಗದ್ವಾಲ್',hi:'गदवाल',mr:'गदवाल',ml:'ഗഡ്‌ವൽ'},
+    'vikarabad':{te:'వికారాబాద్',kn:'ವಿಕಾರಾಬಾದ್',hi:'विकाराबाद',mr:'विकाराबाद',ml:'വിക്കരാബാദ്'},
+    'yadadri':{te:'యాదాద్రి',kn:'ಯಾದಾದ್ರಿ',hi:'यादाद्री',mr:'यादाद्री',ml:'യദദ്രി'},
+    'medak':{te:'మెదక్',kn:'మెದక్',hi:'मेदक',mr:'मेदक',ml:'മേദക്'},
+    'kamareddy':{te:'కామారెడ్డి',kn:'ಕಾಮಾರೆಡ್ಡಿ',hi:'कामारेड्डी',mr:'कामारेड्डी',ml:'കാമാറെഡ്ഡി'},
+    'mahabuabad':{te:'మహబూబాబాద్',kn:'ಮಹಬೂಬಾಬಾದ್',hi:'महबूबाबाद',mr:'महबूबाबाद',ml:'മഹബൂബബാദ്'},
+    'narsampet':{te:'నర్సంపేట',kn:'ನರ್ಸಂಪೇಟ',hi:'नर्सम्पेट',mr:'नर्सम्पेट',ml:'നർസംപേട'},
+    'paleru':{te:'పాలేరు',kn:'ಪಾಲೇరు',hi:'पालेरू',mr:'पालेरू',ml:'പാലേരു'},
+    'bodhan':{te:'బోధన్',kn:'ಬೋಧನ್',hi:'बोधन',mr:'बोधन',ml:'ബോദൻ'},
+    'armoor':{te:'ఆర్మూర్',kn:'ಆರ್ಮೂರ್',hi:'आर्मूर',mr:'आर्मूर',ml:'ಆർമൂർ'},
+    'banswada':{te:'బాన్స్వాడ',kn:'ಬಾನ್ಸ್ವಾಡ',hi:'बांसवाड़ा',mr:'बांसवाडा',ml:'ಬൻസ്‌വാഡ'},
+    'nandyal':{te:'నంద్యాల',kn:'ನಂದ್ಯಾಲ',hi:'नंद्याल',mr:'नंद्याल',ml:'നന്ദ്യൽ'},
+    'proddatur':{te:'ప్రొద్దుటూరు',kn:'ಪ್ರೊದ್ದುಟೂರು',hi:'प्रोद्दुतुर',mr:'प्रोद्दुतुर',ml:'പ്രൊദ്ദുട്ടൂരു'},
+    'hindupur':{te:'హిందూపురం',kn:'ಹಿಂದೂಪುರ',hi:'हिंदूपुर',mr:'हिंदूपुर',ml:'ഹിന്ദൂപുർ'},
+    'dharmavaram':{te:'ధర్మవరం',kn:'ಧರ್ಮವರಂ',hi:'धर्मवरम',mr:'धर्मवरम',ml:'ಧರ್മ്മವರಂ'},
+    'tadipatri':{te:'తాడిపత్రి',kn:'ತಾಡಿಪತ್ರಿ',hi:'ताडिपत्री',mr:'ताडिपत्री',ml:'താಡಿപ്പತ್ರಿ'},
+    'guntakal':{te:'గుంతకల్',kn:'ಗುಂತಕಲ್',hi:'गुंतकल',mr:'गुंतकल',ml:'ഗുಂತക്കಲ್'},
+    'naidupeta':{te:'నాయుడుపేట',kn:'ನಾಯ್ಡುಪೇಟ',hi:'नायडुपेटा',mr:'नायडुपेटा',ml:'നായ്ഡുപേട്ട'},
+    'srikalahasti':{te:'శ్రీకాళహస్తి',kn:'ಶ್ರೀಕಾಳಹಸ್ತಿ',hi:'श्रीकालहस्ती',mr:'श्रीकालहस्ती',ml:'ശ്രീകാളಹಸ್ತಿ'},
+    'chittoor':{te:'చిత్తూరు',kn:'ಚಿತ್ತೂರು',hi:'चित्तूर',mr:'चित्तूर',ml:'ಚಿற்றೂರ್'},
+    'madanapalle':{te:'మదనపల్లె',kn:'ಮದನಪಲ್ಲೆ',hi:'मदनपल्ले',mr:'मदनपल्ले',ml:'മദനപ്പള്ളെ'},
+    'markapur':{te:'మార్కాపురం',kn:'ಮಾರ್ಕಾಪುರಂ',hi:'मार्कापुर',mr:'मार्कापुर',ml:'മർക്കാപുരം'},
+    'chirala':{te:'చీరాల',kn:'ಚೀರಾಲ',hi:'चीराला',mr:'चीराला',ml:'ചീരാല'},
+    'tenali':{te:'తెనాలి',kn:'ತೆನಾಲಿ',hi:'तेनाली',mr:'तेनाली',ml:'തേനാലി'},
+    'bapatla':{te:'బాపట్ల',kn:'ಬಾಪಟ್ಲ',hi:'बापटला',mr:'बापटला',ml:'ബാപ്പട്ല'},
+    'narasaraopet':{te:'నరసరావుపేట',kn:'ನರಸರಾವ್‌ಪೇಟ',hi:'नरसरावपेट',mr:'नरसरावपेट',ml:'നരസരാവുപേട'},
+    'ponnur':{te:'పొన్నూరు',kn:'ಪೊನ್ನೂರು',hi:'पोन्नूर',mr:'पोन्नूर',ml:'പൊന്നൂർ'},
+    'palasa':{te:'పాలాస',kn:'ಪಾಲಾಸ',hi:'पालासा',mr:'पालासा',ml:'പാലാസ'},
+    'vizianagaram':{te:'విజయనగరం',kn:'ವಿಜಯನಗರಂ',hi:'विजयनगरम',mr:'विजयनगरम',ml:'വിജയനഗരം'},
+    'amalapuram':{te:'అమలాపురం',kn:'ಅమలాపురಂ',hi:'अमलापुरम',mr:'अमलापुरम',ml:'അമലാപുരം'},
+    'bhimavaram':{te:'భీమవరం',kn:'ಭೀಮವರಂ',hi:'भीमावरम',mr:'भीमावरम',ml:'ഭീമവരം'},
+    'narasapuram':{te:'నరసాపురం',kn:'ನರಸಾಪುರಂ',hi:'नरसापुरम',mr:'नरसापुरम',ml:'നരസാപുരം'},
+    'tanuku':{te:'తాడేపల్లిగూడెం',kn:'ತಾಡೇಪಲ್ಲಿಗೂಡೆಂ',hi:'तानुकू',mr:'तानुकू',ml:'തനൂക്കു'},
+    'tadepalligudem':{te:'తాడేపల్లిగూడెం',kn:'ತಾಡೇಪಲ್ಲಿಗೂಡೆಂ',hi:'तादेपल्लिगुडेम',mr:'तादेपल्लिगुडेम',ml:'താഡേപ്പള്ളിഗൂഡേം'},
+
+    // ── INDUSTRIAL / LOGISTICS AREAS ──────────────────────────────
+    'icd':{te:'ఐసిడి',kn:'ಐಸಿಡಿ',hi:'आईसीडी',mr:'आयसीडी',ml:'ഐസിഡി'},
+    'apmc':{te:'ఏపిఎంసి',kn:'ಎಪಿಎಂಸಿ',hi:'एपीएमसी',mr:'एपीएमसी',ml:'ಎപിഎംസി'},
+    'industrial area':{te:'పారిశ్రామిక ప్రాంతం',kn:'ಕೈಗಾರಿಕಾ ಪ್ರದೇಶ',hi:'औद्योगिक क्षेत्र',mr:'औद्योगिक क्षेत्र',ml:'വ്യവസായ മേഖല'},
+    'warehouse':{te:'గోదాం',kn:'ಗೋದಾಮು',hi:'गोदाम',mr:'गोदाम',ml:'ഗോഡൗൺ'},
+    'port':{te:'పోర్ట్',kn:'ಬಂದರು',hi:'बंदरगाह',mr:'बंदर',ml:'തുറമുഖം'},
+    'airport':{te:'విమానాశ్రయం',kn:'ವಿಮಾನ ನಿಲ್ದಾಣ',hi:'हवाई अड्डा',mr:'विमानतळ',ml:'വിമാനത്താവളം'},
+    'highway':{te:'హైవే',kn:'ಹೆದ್ದಾರಿ',hi:'राजमार्ग',mr:'महामार्ग',ml:'ഹൈവേ'},
+    'bypass':{te:'బైపాస్',kn:'ಬೈಪಾಸ್',hi:'बाईपास',mr:'बायपास',ml:'ബൈപ്പാസ്'},
+    
+    // ── GOODS & NEW AGRICULTURAL PRODUCTS ─────────────────────────
+    'powder bags':{te:'పౌడర్ బ్యాగ్స్',kn:'ಪೌಡರ್ ಬ್ಯಾಗ್ಸ್',hi:'पाउडर बैग्स',mr:'पावडर बॅग्स',ml:'പൗഡർ ബാഗ്സ്'},
+    'powder':{te:'పౌడర్',kn:'ಪೌಡರ್',hi:'पाउडर',mr:'पावडर',ml:'പൗഡർ'},
+    'books':{te:'పుస్తకాలు',kn:'ಪುಸ್ತಕಗಳು',hi:'किताबें',mr:'पुस्तके',ml:'പുസ്തകങ്ങൾ'},
+    'steel':{te:'స్టీల్',kn:'ಉಕ್ಕು',hi:'इस्पात',mr:'पोलाद',ml:'ഉരുക്ക്'},
+    'cement':{te:'సిమెంట్',kn:'ಸಿಮೆಂಟ್',hi:'सीमेंट',mr:'सिमेंट',ml:'സിമന്റ്'},
+    'coal':{te:'బొగ్గు',kn:'ಕಲ್ಲಿದ್ದಲು',hi:'कोयला',mr:'कोळसा',ml:'കൽക്കരി'},
+    'cotton':{te:'పత్తి',kn:'ಹತ್ತಿ',hi:'कपास',mr:'कापूस',ml:'പരുത്തി'},
+    'rice':{te:'బియ్యం',kn:'ಅಕ್ಕಿ',hi:'चावल',mr:'तांदूळ',ml:'അരി'},
+    'wheat':{te:'గోధుమలు',kn:'ಗೋಧಿ',hi:'गेहूं',mr:'गहू',ml:'ഗോതമ്പ്'},
+    'sand':{te:'ఇసుక',kn:'ಮರಳು',hi:'रेत',mr:'वाळू',ml:'മണൽ'},
+    'granite':{te:'గ్రానైట్',kn:'ಗ್ರಾನೈಟ್',hi:'ग्रेनाइट',mr:'ग्रॅनाइट',ml:'ഗ്രാനൈറ്റ്'},
+    'tiles':{te:'టైల్స్',kn:'ಟೈಲ್ಸ್',hi:'टाइलें',mr:'टाइल्स',ml:'ടൈലുകൾ'},
+    'iron':{te:'ఇనుము',kn:'ಕಬ್ಬಿಣ',hi:'लोहा',mr:'लोखंड',ml:'ഇരുമ്പ്'},
+    'pipes':{te:'పైపులు',kn:'ಪೈಪ್‌ಗಳು',hi:'पाइप',mr:'पाईप',ml:'പൈപ്പുകൾ'},
+    'chemicals':{te:'కెమికల్స్',kn:'ರಾಸಾಯನಿಕಗಳು',hi:'रसायन',mr:'रसायने',ml:'രാസവസ്തുക്കൾ'},
+    'fertilizer':{te:'ఎరువు',kn:'ಗೊಬ್ಬರ',hi:'उर्वरक',mr:'खत',ml:'വളം'},
+    'fertilisers':{te:'ఎరువులు',kn:'ಗೊಬ್ಬರಗಳು',hi:'उर्वरक',mr:'खते',ml:'വളങ്ങൾ'},
+    'machinery':{te:'యంత్రాలు',kn:'ಯಂತ್ರಗಳು',hi:'मशीनरी',mr:'यंत्रसामग्री',ml:'യന്ത്രങ്ങൾ'},
+    'furniture':{te:'ఫర్నీచర్',kn:'ಫರ್ನಿಚರ್',hi:'फर्नीचर',mr:'फर्निचर',ml:'ഫർണിച്ചർ'},
+    'garments':{te:'వస్త్రాలు',kn:'ಉಡುಪುಗಳು',hi:'कपड़े',mr:'कपडे',ml:'വസ്ത്രങ്ങൾ'},
+    'electronics':{te:'ఎలక్ట్రానిక్స్',kn:'ಎಲೆಕ್ಟ್ರಾನಿಕ್ಸ್',hi:'इलेक्ट्रॉनिक्स',mr:'इलेक्ट्रॉनिक्स',ml:'ഇലക്ട്രോണിക്സ്'},
+    'raw material':{te:'ముడిసరుకు',kn:'ಕಚ್ಚಾ ಸಾಮಾಗ್ರಿ',hi:'कच्चा माल',mr:'कच्चा माल',ml:'അസംസ്കൃത വസ്തു'},
+    
+    'material':{te:'పదార్థం',kn:'ವಸ್ತು',hi:'सामग्री',mr:'साहित्य',ml:'വസ്തു'},
+    'waste material':{te:'వ్యర్థ పదార్థాలు',kn:'ತ್ಯಾಜ್ಯ ವಸ್ತುಗಳು',hi:'अपशिष्ट सामग्री',mr:'कचरा साहित्य',ml:'പാഴ്വസ്തുക്കൾ'},
+    'goods':{te:'సరుకులు',kn:'ಸರಕುಗಳು',hi:'माल',mr:'माल',ml:'ചരക്കുകൾ'},
+    
+    'sugar':{te:'చక్కెర',kn:'ಸಕ್ಕರೆ',hi:'चीनी',mr:'साखर',ml:'പഞ്ചസാര'},
+    'salt':{te:'ఉప్పు',kn:'ಉಪ್ಪು',hi:'नमक',mr:'मीठ',ml:'ഉപ്പ്'},
+    'oil':{te:'నూనె',kn:'ಎಣ್ಣೆ',hi:'तेल',mr:'तेल',ml:'ಎಣ್ಣ'},
+    'gas cylinders':{te:'గ్యాస్ సిలిండర్లు',kn:'ಗ್ಯಾಸ್ ಸಿಲಿಂಡರ್‌ಗಳು',hi:'गैस सिलेंडर',mr:'गॅस सिलेंडर',ml:'ഗ്യാസ് സിലിണ്ടറുകൾ'},
+    'tyres':{te:'టైర్లు',kn:'ಟೈರ್‌ಗಳು',hi:'टायर',mr:'टायर',ml:'ടയറുകൾ'},
+    'vehicle parts':{te:'వాహన భాగాలు',kn:'ವಾಹನ ಭಾಗಗಳು',hi:'वाहन के पुर्जे',mr:'वाहन सुटे भाग',ml:'വാഹന ഭാഗങ്ങൾ'},
+    'milk':{te:'పాలు',kn:'ಹಾಲು',hi:'दूध',mr:'दूध',ml:'പാൽ'},
+    'vegetables':{te:'కూరగాయలు',kn:'ತರಕಾರಿಗಳು',hi:'सब्जियां',mr:'भाजीपाला',ml:'പച്ചക്കറികൾ'},
+    'fruits':{te:'పండ్లు',kn:'ಹಣ್ಣುಗಳು',hi:'फल',mr:'फळे',ml:'പഴങ്ങൾ'},
+    'bricks':{te:'ఇటుకలు',kn:'ಇಟ್ಟಿಗೆಗಳು',hi:'ईंट',mr:'विटा',ml:'ഇഷ്ടികകൾ'},
+    'wood':{te:'కలప',kn:'ಮರ',hi:'लकड़ी',mr:'लाकूड',ml:'മരം'},
+    'timber':{te:'కలప',kn:'ಮರ',hi:'इमारती लकड़ी',mr:'लाकूड',ml:'തടി'},
+    'plastic':{te:'ప్లాస్టిక్',kn:'ಪ್ಲಾಸ್ಟಿక్',hi:'प्लास्टिक',mr:'प्लास्टिक',ml:'പ്ലാസ്റ്റിക്'},
+    'paper':{te:'కాగితం',kn:'ಕಾಗದ',hi:'कागज',mr:'कागद',ml:'കടലാസ്'},
+    'medicine':{te:'మందులు',kn:'ಔಷಧಿ',hi:'दवाइयां',mr:'औषधे',ml:'മരുന്ന്'},
+    'marble':{te:'మార్బుల్',kn:'ಅಮೃತಶಿಲೆ',hi:'संगमरमर',mr:'मार्बल',ml:'മാർബിൾ'},
+    'paint':{te:'పెయింట్',kn:'ಬಣ್ಣ',hi:'पेंट',mr:'रंग',ml:'പെയിന്റ്'},
+    'cable':{te:'కేబుల్',kn:'ಕೇಬಲ್',hi:'केबल',mr:'केबल',ml:'കേബിൾ'},
+    'boxes':{te:'పెట్టెలు',kn:'ಪೆಟ್ಟಿಗೆಗಳು',hi:'बक्से',mr:'बॉक्सेस',ml:'പെട്ടികൾ'},
+    'soap boxes':{te:'సబ్బు పెట్టెలు',kn:'ಸೋಪ್ ಪೆಟ್ಟಿಗೆಗಳು',hi:'साबुन के डिब्बे',mr:'साबण बॉक्सेस',ml:'സോപ്പ് പെട്ടികൾ'},
+    'glass':{te:'గాజు',kn:'ಗಾಜು',hi:'कांच',mr:'काच',ml:'ഗ്ലാസ്'},
+    'aluminium':{te:'అల్యూమినియం',kn:'ಅಲ್ಯೂಮಿನಿಯಂ',hi:'एल्युमिनियम',mr:'अॅल्युमिनियम',ml:'അലൂമിനിയം'},
+    'copper':{te:'రాగి',kn:'ತಾಮ್ರ',hi:'तांबा',mr:'तांबे',ml:'ചെമ്പ്'},
+    'battery':{te:'బ్యాటరీ',kn:'ಬ್ಯಾಟರಿ',hi:'बैटरी',mr:'बॅटरी',ml:'ബാറ്ററി'},
+    'yarn':{te:'నూలు',kn:'ನೂಲು',hi:'धागा',mr:'धागा',ml:'നൂൽ'},
+    'cloth':{te:'బట్ట',kn:'ಬಟ್ಟೆ',hi:'कपड़ा',mr:'कापड',ml:'തുണി'},
+    'bags':{te:'బ్యాగులు',kn:'ಚೀಲಗಳು',hi:'थैले',mr:'पिशव्या',ml:'ബാഗുകൾ'},
+    'drums':{te:'డ్రమ్స్',kn:'ಡ್ರಮ್స్',hi:'ड्रम',mr:'ड्रम',ml:'ഡ్రംസ്'},
+    'tools':{te:'పనిముట్లు',kn:'ಉಪಕರಣಗಳు',hi:'उपकरण',mr:'साधने',ml:'ഉപಕರಣങ്ങൾ'},
+    'scrap':{te:'స్క్రాప్',kn:'ಸ್ಕ್ರಾಪ್',hi:'स्क्रैप',mr:'भंगार',ml:'സ്ക്രാപ്പ്'},
+    'waste':{te:'వ్యర్థాలు',kn:'ತ್ಯಾಜ್ಯ',hi:'कचरा',mr:'कचरा',ml:'മാലിന്യം'},
+    'open body':{te:'ఓపెన్ బాడీ',kn:'ಓಪನ್ ಬಾಡಿ',hi:'ओपन बॉडी',mr:'ओपन बॉडी',ml:'ഓപ്പൺ ബോഡി'},
+
+    'groundnut':{te:'వేరుశనగ',kn:'ಕಡಲೆಕಾಯಿ',hi:'मूंगफली',mr:'शेंगदाणे',ml:'നിലക്കടല'},
+    'groundnut oil':{te:'పల్లి నూనె',kn:'ಕಡಲೆಕಾಯಿ ಎಣ್ಣೆ',hi:'मूंगफली का तेल',mr:'शेंगदाणा तेल',ml:'നിലക്കടല എണ്ണ'},
+    'paddy':{te:'వరి',kn:'ಭತ್ತ',hi:'धान',mr:'भात',ml:'നെല്ല്'},
+    'maize':{te:'మొక్కజొన్న',kn:'ಮೆಕ್ಕೆಜೋಳ',hi:'मक्का',mr:'मका',ml:'ചോളം'},
+    'cotton seed':{te:'పత్తి గింజలు',kn:'ಹತ್ತಿ ಬೀಜ',hi:'बिनौला',mr:'सरकी',ml:'പരുത്തി വിത്ത്'},
+    'red gram':{te:'కంది పప్పు',kn:'ತೊಗರಿ ಬೇಳೆ',hi:'अरहर दाल',mr:'तूर डाळ',ml:'തുവര പരിപ്പ്'},
+    'black gram':{te:'మినుములు',kn:'ಉದ್ದಿನ ಬೇಳೆ',hi:'उड़द',mr:'उडीद',ml:'ഉഴുന്ന്'},
+    'green gram':{te:'పెసలు',kn:'ಹೆಸರು ಕಾಳು',hi:'मूंग',mr:'मूग',ml:'ചെറുപയർ'},
+    'bengal gram':{te:'శనగలు',kn:'ಕಡಲೆ ಕಾಳು',hi:'चना',mr:'हरभरा',ml:'കടല'},
+    'chana':{te:'శనగలు',kn:'ಕಡಲೆ ಕಾಳು',hi:'चना',mr:'हरभरा',ml:'കടല'},
+    'pulses':{te:'పప్పు దినుసులు',kn:'ಬೇಳೆಕಾಳುಗಳು',hi:'दालें',mr:'डाळी',ml:'പയർ വർഗ്ഗങ്ങൾ'},
+    'dal':{te:'పప్పు',kn:'ಬೇಳೆ',hi:'दाल',mr:'डाळ',ml:'പരിപ്പ്'},
+    'soya':{te:'సోయా',kn:'ಸೋಯಾ',hi:'सोया',mr:'सोया',ml:'സോയ'},
+    'seeds':{te:'విత్తనాలు',kn:'ಬೀಜಗಳು',hi:'बीज',mr:'बियाणे',ml:'വിത്തുകൾ'},
+    'chillies':{te:'మిరపకాయలు',kn:'ಮೆಣಸಿನಕಾಯಿ',hi:'मिर्च',mr:'मिरची',ml:'മുളക്'},
+    'red chillies':{te:'ఎండు మిర్చి',kn:'ಒಣ ಮೆಣಸಿನಕಾಯಿ',hi:'लाल मिर्च',mr:'लाल मिरची',ml:'വറ്റൽ മുളക്'},
+    'turmeric':{te:'పసుపు',kn:'ಅರಿಶಿನ',hi:'हल्दी',mr:'हळद',ml:'മഞ്ഞൾ'},
+    'onion':{te:'ఉల్లిపాయలు',kn:'ಈರುಳ್ಳಿ',hi:'प्याज',mr:'कांदा',ml:'ഉള്ളി'},
+    'tomato':{te:'టమాటా',kn:'ಟೊಮೆಟೊ',hi:'टमाटर',mr:'टोमॅटो',ml:'തക്കാളി'},
+    'potato':{te:'బంగాళాదుంప',kn:'ಆಲೂಗಡ್ಡೆ',hi:'आलू',mr:'बटाटा',ml:'ഉരുളക്കിഴങ്ങ്'},
+    'jaggery':{te:'బెల్లం',kn:'ಬೆಲ್ಲ',hi:'गुड़',mr:'गूळ',ml:'ശർക്കര'},
+    'tamarind':{te:'చింతపండు',kn:'ಹುಣಸೆಹಣ್ಣು',hi:'इमली',mr:'चिंच',ml:'പുളി'},
+    
+    'coconut':{te:'కొబ్బరికాయలు',kn:'ತೆಂಗಿನಕಾಯಿ',hi:'नारियल',mr:'नारळ',ml:'തേങ്ങ'},
+    'coconut bags':{te:'కొబ్బరి బ్యాగులు',kn:'ತೆಂಗಿನಕಾಯಿ ಚೀಲಗಳು',hi:'नारियल के थैले',mr:'नारळाच्या पिशव्या',ml:'തേങ്ങ ബാഗുകൾ'},
+    'coconut powder':{te:'కొబ్బరి పౌడర్',kn:'ತೆಂಗಿನಕಾಯಿ ಪುಡಿ',hi:'नारियल पाउडर',mr:'नारळ पावडर',ml:'തേങ്ങാപ്പൊടി'},
+    
+    'copra':{te:'ఎండు కొబ్బరి',kn:'ಕೊಬ್ಬರಿ',hi:'खोपरा',mr:'खोबरे',ml:'കൊപ്ര'},
+    'arecanut':{te:'వక్కలు',kn:'ಅಡಿಕೆ',hi:'सुपारी',mr:'सुपारी',ml:'അടയ്ക്ക'},
+    'castor':{te:'ఆముదం',kn:'ಹರಳು',hi:'अरंडी',mr:'एरंडी',ml:'ആവണക്കെണ്ണ'},
+    'oil cake':{te:'చెక్క',kn:'ಹಿಂಡಿ',hi:'खली',mr:'पेंड',ml:'പിണ്ണാക്ക്'},
+
+    // ── STATES ────────────────────────────────────────────────────
+    'andhra pradesh':{te:'ఆంధ్రప్రదేశ్',kn:'ಆಂಧ್ರಪ್ರದೇಶ',hi:'आंध्र प्रदेश',mr:'आंध्र प्रदेश',ml:'ആന്ധ്രാ പ്രദേശ്'},
+    'telangana':{te:'తెలంగాణ',kn:'ತೆಲಂಗಾಣ',hi:'तेलंगाना',mr:'तेलंगणा',ml:'തെലങ്കാന'},
+    'karnataka':{te:'కర్నాటక',kn:'ಕರ್ನಾಟಕ',hi:'कर्नाटक',mr:'कर्नाटक',ml:'ಕರ್ನಾಟಕ'},
+    'maharashtra':{te:'మహారాష్ట్ర',kn:'ಮಹಾರಾಷ್ಟ್ರ',hi:'महाराष्ट्र',mr:'महाराष्ट्र',ml:'മഹാരാഷ്ട്ര'},
+    'kerala':{te:'కేరళ',kn:'ಕೇರಳ',hi:'केरल',mr:'केरळ',ml:'കേരളം'},
+    'tamil nadu':{te:'తమిళనాడు',kn:'ತಮಿಳುನಾಡು',hi:'तमिलनाडु',mr:'तमिळनाडू',ml:'തമിഴ്‌നാട്'},
+};
+
+// ══════════════════════════════════════════════════════════════
+// UPGRADED LOOKUP LOGIC
+// ══════════════════════════════════════════════════════════════
+const apiCache = {};
+
+function getDictEntry(key) {
+    if (!key) return null;
+    if (D[key]) return D[key];
+    if (key.endsWith('s') && D[key.slice(0, -1)]) return D[key.slice(0, -1)];
+    return null;
+}
+
+async function translateViaAPI(text, lang) {
+    const ckey = text.toLowerCase()+'|'+lang;
+    if (apiCache[ckey]) return apiCache[ckey];
+    
+    try {
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${lang}&dt=t&q=${encodeURIComponent(text.toLowerCase())}`;
+        const res = await fetch(url);
+        const json = await res.json();
+        const tr = json[0][0][0];
+        
+        if (tr) {
+            apiCache[ckey] = tr; 
+            return tr;
+        }
+    } catch(e) { console.error("Translation error:", e); }
+    return text;
+}
+
+function lookup(text, lang) {
+    if (!text || lang === 'en') return text;
+    const t = text.trim();
+    const key = t.toLowerCase();
+
+    const full = getDictEntry(key);
+    if (full && full[lang]) return full[lang];
+
+    const ckey = key + '|' + lang;
+    if (apiCache[ckey]) return apiCache[ckey];
+
+    const tokens = t.split(/(\s+|[(),\/\-]+)/);
+    let changed = false;
+    
+    const out = tokens.map(tok => {
+        const tkey = tok.toLowerCase().trim();
+        if (!tkey) return tok;
+
+        const entry = getDictEntry(tkey);
+        if (entry && entry[lang]) {
+            changed = true;
+            return entry[lang];
+        }
+
+        const tckey = tkey + '|' + lang;
+        if (apiCache[tckey]) {
+            changed = true;
+            return apiCache[tckey];
+        }
+
+        return tok; 
+    });
+
+    return changed ? out.join('') : text;
+}
+
+async function preTranslate(wordList, langs) {
+    const needed = new Set();
+    
+    wordList.forEach(w => {
+        if(!w) return;
+        const t = w.trim();
+        const key = t.toLowerCase();
+        
+        langs.forEach(lang => {
+            if (lang === 'en') return;
+            if (getDictEntry(key)) return; 
+            
+            const ckey = key + '|' + lang;
+            let allTokensFound = true;
+            const tokens = t.split(/(\s+|[(),\/\-]+)/);
+            
+            tokens.forEach(tok => {
+                const tkey = tok.toLowerCase().trim();
+                if (!tkey) return;
+                if (getDictEntry(tkey)) return; 
+                
+                const tckey = tkey + '|' + lang;
+                if (!apiCache[tckey]) {
+                    allTokensFound = false;
+                    needed.add(JSON.stringify({w: tok.trim(), lang})); 
+                }
+            });
+            
+            if (!allTokensFound && !apiCache[ckey]) {
+                needed.add(JSON.stringify({w: t, lang}));
+            }
+        });
+    });
+    
+    const tasks = Array.from(needed).map(item => {
+        const {w, lang} = JSON.parse(item);
+        return translateViaAPI(w, lang);
+    });
+    
+    if (tasks.length) await Promise.all(tasks);
+}
+
+// ══════════════════════════════════════════════════════════════
+// STATE & UI
+// ══════════════════════════════════════════════════════════════
+let boards = JSON.parse(localStorage.getItem('rrp_boards_v7') || '[]');
+let waCount = parseInt(localStorage.getItem('rrp_wa_v7') || '0');
+let activeLangs = new Set(['en','te','kn']);
+let entryCount = 0;
+let entries = [];
+
+let groups = JSON.parse(localStorage.getItem('rrp_groups_v7') || 'null') || [
+    {id:1, name:'Group 1 Placeholder', num:'919494831803', link:'https://chat.whatsapp.com/EZ2qLASsvKs2nKOI1j5kBY?mode=gi_t', sel:true},
+    {id:2, name:'Group 2 Placeholder', num:'919014884668', link:'https://chat.whatsapp.com/CmQtHHEEf5V2u0jXGkn6Hf?mode=gi_t', sel:true},
+    {id:3, name:'Group 3 Placeholder', num:'919494831803', link:'https://chat.whatsapp.com/FER9dia3Ujs3yKGk0T7WIg?mode=gi_t', sel:true},
+    {id:4, name:'Group 4 Placeholder', num:'919014884668', link:'https://chat.whatsapp.com/DjcSfyDd8KJ9IubOsdYTdX?mode=gi_t', sel:true}
+];
+
+const CONNECTORS = {
+    en:(f,t)=>`📍 ${f} TO ${t}`,
+    te:(f,t)=>`📍 ${f} నుండి ${t}`,
+    kn:(f,t)=>`📍 ${f} ನಿಂದ ${t}`,
+    hi:(f,t)=>`📍 ${f} से ${t}`,
+    mr:(f,t)=>`📍 ${f} पासून ${t}`,
+    ml:(f,t)=>`📍 ${f} നിന്ന് ${t}`,
+};
+
+const TONS_OPTIONS = ['10','12','15','20','25','30','35','40'];
+const TYRE_OPTIONS = ['6 Tyre','10 Tyre','12 Tyre','14 Tyre','16 Tyre','18 Tyre','22 Tyre'];
+
+function addEntry() {
+    entries.push({id:++entryCount, from:'', to:'', tons:[], tyres:[], material:''});
+    renderEntries(); updatePreview();
+}
+function removeEntry(id) {
+    entries = entries.filter(e=>e.id!==id);
+    renderEntries(); updatePreview();
+}
+function setField(id, f, v) {
+    const e = entries.find(x=>x.id===id);
+    if(e){e[f]=v; updatePreview();}
+}
+function toggleChip(id, f, v, btn) {
+    const e = entries.find(x=>x.id===id);
+    if(!e) return;
+    const i = e[f].indexOf(v);
+    if(i>-1){e[f].splice(i,1);btn.classList.remove('sel');}
+    else {e[f].push(v); btn.classList.add('sel');}
+    updatePreview();
+}
+
+function renderEntries() {
+    document.getElementById('loadEntries').innerHTML = entries.map((e,i)=>`
+    <div class="load-entry">
+        <div class="entry-hdr">
+            <span class="entry-num">🚛 LOAD ${i+1}</span>
+            ${entries.length>1?`<button class="entry-del" onclick="removeEntry(${e.id})">✕</button>`:''}
+        </div>
+        <div class="route-row">
+            <div><label>From</label>
+            <input type="text" placeholder="e.g. Shadnagar" value="${e.from}" oninput="setField(${e.id},'from',this.value)"></div>
+            <div class="arrow">→</div>
+            <div><label>To</label>
+            <input type="text" placeholder="e.g. Mandideep (MP)" value="${e.to}" oninput="setField(${e.id},'to',this.value)"></div>
+        </div>
+        <div class="fg">
+            <div class="chip-lbl">Tonnage</div>
+            <div class="chips">${TONS_OPTIONS.map(t=>`<button class="chip ${e.tons.includes(t)?'sel':''}" onclick="toggleChip(${e.id},'tons','${t}',this)">${t}T</button>`).join('')}</div>
+        </div>
+        <div class="fg">
+            <div class="chip-lbl">Tyre Type</div>
+            <div class="chips">${TYRE_OPTIONS.map(t=>`<button class="chip ${e.tyres.includes(t)?'sel':''}" onclick="toggleChip(${e.id},'tyres','${t}',this)">${t}</button>`).join('')}</div>
+        </div>
+        <div class="fg" style="margin-bottom:0">
+            <label>Material / Goods</label>
+            <input type="text" placeholder="e.g. Powder Bags" value="${e.material}" oninput="setField(${e.id},'material',this.value)">
+        </div>
+    </div>`).join('');
+}
+
+function buildMessage() {
+    const valid = entries.filter(e=>e.from&&e.to);
+    if(!valid.length) return '';
+    
+    const contacts = document.getElementById('contact').value.split('|');
+    const waLink = document.getElementById('waLink').value.trim();
+    const remarks = document.getElementById('remarks').value.trim();
+    const nonEng = [...activeLangs].filter(l=>l!=='en');
+    const missing = new Set();
+    const lines = [];
+    
+    lines.push('*RRP ENTERPRISES* 🚚\n');
+    
+    valid.forEach((e,i)=>{
+        const fromEN = e.from.trim();
+        const toEN = e.to.trim();
+        lines.push(CONNECTORS.en(fromEN.toUpperCase(), toEN.toUpperCase()));
+        
+        nonEng.forEach(lang=>{
+            const fromTr = lookup(fromEN, lang);
+            const toTr = lookup(toEN, lang);
+            if(fromTr.toLowerCase()===fromEN.toLowerCase()) missing.add(fromEN);
+            if(toTr.toLowerCase()===toEN.toLowerCase()) missing.add(toEN);
+            lines.push(CONNECTORS[lang](fromTr, toTr));
+        });
+        
+        if(e.tons.length) lines.push('⚖️ ' + e.tons.join(',')+' TONES');
+        if(e.tyres.length) lines.push('🛞 ' + e.tyres.map(t=>t.replace(/\s*tyre/i,'')).join(',')+' TYRE');
+        if(e.material){
+            lines.push('📦 ' + e.material.toUpperCase());
+            nonEng.forEach(lang=>{
+                const mat = lookup(e.material, lang);
+                if(mat && mat.toLowerCase()!==e.material.toLowerCase()) lines.push('📦 ' + mat);
+                else if(mat.toLowerCase()===e.material.toLowerCase()) missing.add(e.material);
+            });
+        }
+        if(i<valid.length-1) lines.push('');
+    });
+    
+    lines.push('\n*RRP ENTERPRISES*');
+    if(contacts[0]) lines.push('📞 ' + contacts[0]);
+    if(contacts[1]) lines.push('📞 ' + contacts[1]);
+    
+    if(waLink){lines.push('');lines.push(waLink);}
+    if(remarks){lines.push('');lines.push(remarks.toUpperCase());}
+    
+    const note = document.getElementById('missNote');
+    if(note){
+        const missArr = [...missing].filter(w=>w.trim());
+        if(missArr.length && nonEng.length){
+            note.textContent = `ℹ️ Translating: ${missArr.join(', ')}`;
+            note.classList.add('show');
+        } else {
+            note.classList.remove('show');
+        }
+    }
+    return lines.join('\n');
+}
+
+let previewTimer = null;
+async function updatePreview() {
+    const box = document.getElementById('prevBox');
+    const valid = entries.filter(e=>e.from&&e.to);
+    
+    if(!valid.length){
+        box.innerHTML=`<span class="prev-ph">Fill the form above to preview your WhatsApp message...</span>`;
+        return;
+    }
+    
+    const words = [];
+    valid.forEach(e=>{
+        if(e.from) words.push(e.from.trim());
+        if(e.to) words.push(e.to.trim());
+        if(e.material) words.push(e.material.trim());
+    });
+    
+    const nonEng = [...activeLangs].filter(l=>l!=='en');
+    box.textContent = buildMessage();
+    
+    const btn = document.createElement('button');
+    btn.className='copy-float'; btn.textContent='Copy';
+    btn.onclick = () => copyTextToClipboard(buildMessage()); // <--- UPDATED TO USE ROBUST COPY
+    box.appendChild(btn);
+    
+    if(nonEng.length){
+        clearTimeout(previewTimer);
+        previewTimer = setTimeout(async ()=>{
+            await preTranslate(words, nonEng);
+            box.textContent = buildMessage();
+            const btn2 = document.createElement('button');
+            btn2.className='copy-float'; btn2.textContent='Copy';
+            btn2.onclick = () => copyTextToClipboard(buildMessage()); // <--- UPDATED TO USE ROBUST COPY
+            box.appendChild(btn2);
+        }, 600);
+    }
+}
+
+function toggleLang(btn) {
+    const lang = btn.dataset.lang;
+    if(activeLangs.has(lang)&&activeLangs.size>1){activeLangs.delete(lang);btn.classList.remove('sel');}
+    else{activeLangs.add(lang);btn.classList.add('sel');}
+    updatePreview();
+}
+
+function saveToBoard() {
+    const valid = entries.filter(e=>e.from&&e.to);
+    if(!valid.length){toast('⚠️ Add at least one load with From & To');return;}
+    
+    const board={id:Date.now(),entries:JSON.parse(JSON.stringify(valid)),langs:[...activeLangs],
+    contact:document.getElementById('contact').value,waLink:document.getElementById('waLink').value.trim(),
+    remarks:document.getElementById('remarks').value.trim(),
+    time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),
+    date:new Date().toLocaleDateString('en-IN')};
+    
+    boards.unshift(board);
+    localStorage.setItem('rrp_boards_v7',JSON.stringify(boards));
+    renderHistory(); updateStats(); toast(`✅ ${valid.length} load(s) added to board`);
+}
+
+function deleteBoard(id){boards=boards.filter(b=>b.id!==id);localStorage.setItem('rrp_boards_v7',JSON.stringify(boards));renderHistory();updateStats();}
+
+function sendBoard(bid){
+    const b=boards.find(x=>x.id===bid);if(!b)return;
+    const sE=entries,sL=new Set(activeLangs),sC=document.getElementById('contact').value,sW=document.getElementById('waLink').value,sR=document.getElementById('remarks').value;
+    
+    entries=b.entries;activeLangs=new Set(b.langs);
+    document.getElementById('contact').value=b.contact;
+    document.getElementById('waLink').value=b.waLink||'';
+    document.getElementById('remarks').value=b.remarks||'';
+    
+    const msg=buildMessage();
+    
+    entries=sE;activeLangs=sL;
+    document.getElementById('contact').value=sC;document.getElementById('waLink').value=sW;document.getElementById('remarks').value=sR;
+    
+    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,'_blank');
+    waCount++;localStorage.setItem('rrp_wa_v7',waCount);updateStats();toast('📲 Opening WhatsApp...');
+}
+
+function renderHistory(){
+    const wrap=document.getElementById('histList');
+    if(!boards.length){wrap.innerHTML=`<div class="empty"><div class="empty-icon">🚛</div><div class="empty-txt">No loads posted yet.</div></div>`;return;}
+    
+    wrap.innerHTML=boards.map(b=>{
+        const f=b.entries[0];
+        const tags=[];
+        if(f.tons.length)tags.push(f.tons.join('/')+'T');
+        if(f.tyres.length)tags.push(f.tyres.join('/'));
+        if(f.material)tags.push(f.material);
+        const ex=b.entries.length>1?` <em>+${b.entries.length-1} more</em>`:'';
+        
+        return`<div class="hist-item"><div class="hist-icon">🚛</div>
+        <div class="hist-info">
+        <div class="hist-route">${f.from.toUpperCase()} <em>→</em> ${f.to.toUpperCase()}${ex}</div>
+        <div class="hist-meta">${tags.map(t=>`<span class="tag">${t}</span>`).join('')}<span class="tag">${b.entries.length} load(s)</span></div>
+        </div>
+        <div class="hist-acts"><div class="hist-time">${b.time}</div>
+        <button class="mb mb-wa" onclick="sendBoard(${b.id})">📲 Send</button>
+        <button class="mb mb-del" onclick="deleteBoard(${b.id})">✕ Del</button>
+        </div></div>`;}).join('');
+}
+
+function saveGroups(){localStorage.setItem('rrp_groups_v7',JSON.stringify(groups));}
+
+function renderGroups(){
+    const n=groups.filter(g=>g.sel).length;
+    document.getElementById('selCount').textContent=n;
+    document.getElementById('bcastBtn').disabled=n===0;
+    const wrap=document.getElementById('grpList');
+    if(!groups.length){wrap.innerHTML=`<div style="color:rgba(255,255,255,.25);font-size:12px;padding:6px 0;">No groups yet.</div>`;return;}
+    wrap.innerHTML=groups.map(g=>`<div class="grp-item">
+    <input type="checkbox" ${g.sel?'checked':''} onchange="toggleGrp(${g.id},this.checked)">
+    <div style="flex:1"><div class="grp-name">${g.name}</div><div class="grp-num">+${g.num} ${g.link ? '<span style="color:var(--gold);font-weight:bold;margin-left:5px;">🔗 Attached</span>' : ''}</div></div>
+    <button class="grp-del" onclick="delGrp(${g.id})">✕</button></div>`).join('');
+}
+
+function toggleGrp(id,val){const g=groups.find(x=>x.id===id);if(g)g.sel=val;saveGroups();renderGroups();}
+
+function addGroup(){
+    const name=document.getElementById('newGrpName').value.trim();
+    const num=document.getElementById('newGrpNum').value.trim().replace(/\D/g,'');
+    const link=document.getElementById('newGrpLink').value.trim();
+    if(!name||!num){toast('⚠️ Enter group name and number');return;}
+    groups.push({id:Date.now(),name,num,link,sel:true});
+    saveGroups();renderGroups();
+    document.getElementById('newGrpName').value=''; document.getElementById('newGrpNum').value=''; document.getElementById('newGrpLink').value='';
+    toast('✅ Group added');
+}
+
+function delGrp(id){groups=groups.filter(g=>g.id!==id);saveGroups();renderGroups();toast('🗑️ Removed');}
+
+let bQ=[],bI=0;
+function startBroadcast(){
+    if(!entries.filter(e=>e.from&&e.to).length){toast('⚠️ Add at least one load first');return;}
+    bQ=groups.filter(g=>g.sel);
+    if(!bQ.length){toast('⚠️ Select at least one group');return;}
+    bI=0; sendNext();
+}
+
+function sendNext(){
+    if(bI>=bQ.length){waCount+=bQ.length;localStorage.setItem('rrp_wa_v7',waCount);updateStats();toast(`✅ Sent to ${bQ.length} group(s)`);return;}
+    const g=bQ[bI];
+    const waLinkInput = document.getElementById('waLink');
+    const originalWaLink = waLinkInput.value;
+    if (g.link) waLinkInput.value = g.link;
+    const msg = buildMessage();
+    waLinkInput.value = originalWaLink;
+    window.open(`https://wa.me/${g.num}?text=${encodeURIComponent(msg)}`,'_blank');
+    bI++;
+    if(bI<bQ.length){toast(`📲 Opening ${g.name}... (${bI}/${bQ.length})`);setTimeout(sendNext,1800);}
+    else{waCount+=bQ.length;localStorage.setItem('rrp_wa_v7',waCount);updateStats();toast(`✅ All ${bQ.length} groups opened`);}
+}
+
+function clearAll(){entries=[];entryCount=0;document.getElementById('remarks').value='';document.getElementById('waLink').value='';renderEntries();updatePreview();}
+function updateStats(){const today=new Date().toLocaleDateString('en-IN');document.getElementById('stat-today').textContent=boards.filter(b=>b.date===today).length;document.getElementById('stat-total').textContent=boards.length;document.getElementById('stat-sent').textContent=waCount;}
+
+let toastTimer;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2800);}
+
+// INIT
+addEntry();renderGroups();renderHistory();updateStats();
+</script>
+</body>
+</html>
