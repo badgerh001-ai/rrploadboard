@@ -113,7 +113,7 @@ textarea{resize:none;height:72px;}
 .empty-txt{font-size:14px;font-weight:500;}
 
 /* Broadcast Button */
-.btn-bcast{width:100%;padding:16px;border-radius:12px;border:none;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s ease;display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;box-shadow:0 4px 12px rgba(37,211,102,0.3);margin-top:16px;}
+.btn-bcast{width:100%;padding:16px;border-radius:12px;border:none;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.2s ease;display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;box-shadow:0 4px 12px rgba(37,211,102,0.3);}
 .btn-bcast:hover{background:#1da851;transform:translateY(-1px);}
 .btn-bcast:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none;}
 
@@ -198,10 +198,17 @@ textarea{resize:none;height:72px;}
         <div class="prev-box" id="prevBox">
             <span class="prev-ph">Enter load details above to preview your message...</span>
         </div>
-        <button class="btn-bcast" id="bcastBtn" onclick="shareToWhatsApp()" disabled>
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.118 1.535 5.848L0 24l6.335-1.52A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.001-1.366l-.359-.214-3.721.893.926-3.62-.234-.372A9.8 9.8 0 012.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
-            Share via WhatsApp
-        </button>
+        
+        <div style="display:flex; gap:12px; margin-top:16px;">
+            <button class="btn-bcast" id="copyBtn" onclick="copyToClipboard()" disabled style="flex:0.4; background:var(--bg-card); border:1px solid var(--border); color:var(--white); box-shadow:none;">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                Copy
+            </button>
+            <button class="btn-bcast" id="bcastBtn" onclick="shareToWhatsApp()" disabled style="flex:1;">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.118 1.535 5.848L0 24l6.335-1.52A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.001-1.366l-.359-.214-3.721.893.926-3.62-.234-.372A9.8 9.8 0 012.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818z"/></svg>
+                Share
+            </button>
+        </div>
     </div>
 
     <div class="sec-title" style="margin-top: 32px;">Active Load History</div>
@@ -268,7 +275,7 @@ const D = {
     'patancheru':{te:'పటాన్‌చెరు',kn:'ಪಟಾನ್‌ಚೆರು',hi:'पटांचेरू',mr:'पटांचेरू',ml:'പടാൻചേരു'},
     'sangareddy':{te:'సంగారెడ్డి',kn:'ಸಂಗಾರೆಡ್ಡಿ',hi:'संगारेड्डी',mr:'संगारेड्डी',ml:'സംഗാറെഡ്ഡി'},
     'nizamabad':{te:'నిజామాబాద్',kn:'ನಿಜಾಮಾಬಾದ್',hi:'निजामाबाद',mr:'निजामाबाद',ml:'നിസാമാബാദ്'},
-    'karimnagar':{te:'కరీంనగర్',kn:'ಕರೀಂನಗರ್',hi:'करीमनगर',mr:'करीमनगर',ml:'കരീംനഗർ'},
+    'karimnagar':{te:'కరీంనగర్',kn:'కರೀಂನಗರ್',hi:'करीमनगर',mr:'करीमनगर',ml:'കരീംനഗർ'},
     'warangal':{te:'వరంగల్',kn:'ವರంగల్',hi:'वारंगल',mr:'वारंगल',ml:'വാറംഗൽ'},
     'khammam':{te:'ఖమ్మం',kn:'ಖಮ್ಮಂ',hi:'खम्मम',mr:'खम्मम',ml:'ഖമ്മം'},
     'nalgonda':{te:'నల్గొండ',kn:'ನಲ್ಗೊಂಡ',hi:'नलगोंडा',mr:'नलगोंडा',ml:'നൽഗൊണ്ട'},
@@ -292,7 +299,7 @@ const D = {
     'miryalaguda':{te:'మిర్యాలగూడ',kn:'ಮಿರ್ಯಾಲಗೂಡ',hi:'मिर्यालगुडा',mr:'मिर्यालगुडा',ml:'മിര്യാലഗൂഡ'},
     'bhongir':{te:'భువనగిరి',kn:'ಭುವನಗಿರಿ',hi:'भुवनगिरी',mr:'भुवनगिरी',ml:'ഭുവനഗിരി'},
     'jadcherla':{te:'జడ్చర్ల',kn:'ಜಡ್ಚರ್ಲ',hi:'जडचर्ला',mr:'जडचर्ला',ml:'ಜಡ್ಚರ್ಲ'},
-    'kothagudem':{te:'కొత్తగూడెం',kn:'ಕೊత్తಗೂಡೆಂ',hi:'कोत्तागुडेम',mr:'कोत्तागुडेम',ml:'കൊത്തഗുഡേം'},
+    'kothagudem':{te:'కొత్తగూడెం',kn:'ಕೊತ್ತಗೂಡೆಂ',hi:'कोत्तागुडेम',mr:'कोत्तागुडेम',ml:'കൊത്തഗുഡേം'},
     'mancherial':{te:'మంచిర్యాల',kn:'ಮಂಚಿರ್ಯಾಲ',hi:'मंचेरियाल',mr:'मंचेरियाल',ml:'മഞ്ചേരിയൽ'},
     'zaheerabad':{te:'జహీరాబాద్',kn:'ಜಹೀರಾಬಾದ್',hi:'जहीराबाद',mr:'जहीराबाद',ml:'സഹീറാബാദ്'},
     'siddipet':{te:'సిద్దిపేట',kn:'ಸಿದ್ದಿಪೇಟ',hi:'सिद्दिपेट',mr:'सिद्दिपेट',ml:'സിദ്ದಿപേട'},
@@ -303,8 +310,8 @@ const D = {
     'nelmangla':{te:'నేలమంగల',kn:'ನೆಲಮಂಗಲ',hi:'नेलमंगला',mr:'नेलमंगला',ml:'ನೆಲಮಂಗಲ'},
     'kolar':{te:'కోలార్',kn:'ಕೋಲಾರ್',hi:'कोलार',mr:'कोलार',ml:'ಕೋಲಾರ್'},
     'tumkur':{te:'తుమకూరు',kn:'ತುಮಕೂರು',hi:'तुमकुर',mr:'तुमकुर',ml:'ತುಮകൂരു'},
-    'mysore':{te:'మైసూర్',kn:'ಮೈಸೂರು',hi:'मैसूर',mr:'म्हैसूर',ml:'ಮೈസൂരു'},
-    'mysuru':{te:'మైసూర్',kn:'ಮೈಸೂರು',hi:'मैसूर',mr:'म्हैसूर',ml:'ಮೈസൂരു'},
+    'mysore':{te:'మైసూర్',kn:'ಮೈಸೂರು',hi:'मैसूर',mr:'म्हैसूर',ml:'മೈസൂരു'},
+    'mysuru':{te:'మైసూర్',kn:'ಮೈಸೂರು',hi:'मैसूर',mr:'म्हैसूर',ml:'മೈസൂരു'},
     'mangalore':{te:'మంగళూరు',kn:'ಮಂಗಳೂರು',hi:'मंगलोर',mr:'मंगलोर',ml:'ಮಂಗಲಾപുരം'},
     'hubli':{te:'హుబ్లి',kn:'ಹುಬ್ಬಳ್ಳಿ',hi:'हुबली',mr:'हुबळी',ml:'ಹೂബ്ളി'},
     'dharwad':{te:'ధార్వాడ',kn:'ಧಾರವಾಡ',hi:'धारवाड़',mr:'धारवाड',ml:'ಧಾರ್ವಾಡ'},
@@ -562,8 +569,8 @@ const D = {
     'yarn':{te:'నూలు',kn:'ನೂಲು',hi:'धागा',mr:'धागा',ml:'നൂൽ'},
     'cloth':{te:'బట్ట',kn:'ಬಟ್ಟೆ',hi:'कपड़ा',mr:'कापड',ml:'തുണി'},
     'bags':{te:'బ్యాగులు',kn:'ಚೀಲಗಳು',hi:'थैले',mr:'पिशव्या',ml:'ബാഗുകൾ'},
-    'drums':{te:'డ్రమ్s',kn:'ಡ್ರಮ್ಸ್',hi:'ड्रम',mr:'ड्रम',ml:'ഡ్రംസ്'},
-    'tools':{te:'పనిముట్లు',kn:'ಉಪಕರಣಗಳు',hi:'उपकरण',mr:'साधने',ml:'ഉപಕರಣങ്ങൾ'},
+    'drums':{te:'డ్రమ్స్',kn:'ಡ್ರಮ್ಸ್',hi:'ड्रम',mr:'ड्रम',ml:'ഡ్రംസ്'},
+    'tools':{te:'పనిముట్లు',kn:'ಉಪಕರಣಗಳు',hi:'उपकरण',mr:'साधने',ml:'ಉപಕರಣങ്ങൾ'},
     'scrap':{te:'స్క్రాప్',kn:'ಸ್ಕ್ರಾಪ್',hi:'स्क्रैप',mr:'भंगार',ml:'സ്ക്രാപ്പ്'},
     'waste':{te:'వ్యర్థాలు',kn:'ತ್ಯಾಜ್ಯ',hi:'कचरा',mr:'कचरा',ml:'മാലിന്യം'},
     'open body':{te:'ఓపెన్ బాడీ',kn:'ಓಪನ್ ಬಾಡಿ',hi:'ओपन बॉडी',mr:'ओपन बॉडी',ml:'ഓപ്പൺ ബോഡി'},
@@ -828,15 +835,18 @@ let previewTimer = null;
 async function updatePreview() {
     const box = document.getElementById('prevBox');
     const bcastBtn = document.getElementById('bcastBtn');
+    const copyBtn = document.getElementById('copyBtn');
     const valid = entries.filter(e=>e.from&&e.to);
     
     if(!valid.length){
         box.innerHTML=`<span class="prev-ph">Enter load details above to preview your message...</span>`;
         bcastBtn.disabled = true;
+        if(copyBtn) copyBtn.disabled = true;
         return;
     }
     
     bcastBtn.disabled = false;
+    if(copyBtn) copyBtn.disabled = false;
     const words = [];
     valid.forEach(e=>{
         if(e.from) words.push(e.from.trim());
@@ -931,6 +941,21 @@ function openWhatsAppShare(msg) {
     waCount++;
     localStorage.setItem('rrp_wa_v8',waCount);
     updateStats();
+}
+
+function copyToClipboard(){
+    const valid=entries.filter(e=>e.from&&e.to);
+    if(!valid.length)return;
+    const msg=buildMessage();
+    if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(msg).then(()=>toast('Message copied!')).catch(()=>toast('Failed to copy'));
+    } else {
+        let ta=document.createElement("textarea");
+        ta.value=msg; ta.style.position='fixed'; ta.style.top='0'; ta.style.left='0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        try{document.execCommand('copy');toast('Message copied!');}catch(e){toast('Failed to copy');}
+        document.body.removeChild(ta);
+    }
 }
 
 function renderHistory(){
